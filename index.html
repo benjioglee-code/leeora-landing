@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leeora Careers — Global Career Community</title>
+  <meta name="description" content="Leeora is a global community for internationally educated students, graduates, and early-career individuals exploring career direction, identity, and life after global education." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #10233F;
+      --navy-2: #18315F;
+      --blue: #2F7C73;
+      --blue-soft: #E7F4F1;
+      --ink: #10233F;
+      --muted: #64706F;
+      --muted-2: #87918F;
+      --line: #E2EAE8;
+      --surface: #F7F9F8;
+      --surface-2: #FBFCFC;
+      --white: #ffffff;
+      --shadow: 0 24px 70px rgba(16, 35, 63, 0.10);
+      --shadow-soft: 0 16px 45px rgba(16, 35, 63, 0.07);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(47, 124, 115, 0.12), transparent 34rem),
+        linear-gradient(180deg, #ffffff 0%, #f8fbfa 46%, #ffffff 100%);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page-shell {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(255, 255, 255, 0.78);
+      border-bottom: 1px solid rgba(230, 235, 243, 0.72);
+    }
+
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--navy);
+      font-size: 20px;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background:
+        linear-gradient(135deg, var(--navy), var(--blue));
+      position: relative;
+      box-shadow: 0 10px 28px rgba(47, 124, 115, 0.22);
+    }
+
+    .brand-mark::before,
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      border: 1.5px solid rgba(255, 255, 255, 0.76);
+      border-radius: 50%;
+      inset: 7px 4px;
+      transform: rotate(-24deg);
+    }
+
+    .brand-mark::after {
+      inset: 4px 10px;
+      transform: rotate(24deg);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--navy);
+    }
+
+    .nav-cta {
+      padding: 10px 15px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--navy);
+      background: var(--white);
+      box-shadow: 0 8px 24px rgba(10, 30, 80, 0.06);
+    }
+
+    .language-toggle {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      color: var(--navy);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(10, 30, 80, 0.06);
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+
+    .language-toggle:hover {
+      transform: translateY(-1px);
+      border-color: rgba(47, 124, 115, 0.30);
+    }
+
+    .section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 96px 22px;
+    }
+
+    .hero {
+      padding-top: 86px;
+      padding-bottom: 80px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      gap: 48px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid rgba(47, 124, 115, 0.18);
+      background: rgba(234, 241, 255, 0.78);
+      color: var(--navy-2);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 0 4px rgba(47, 124, 115, 0.14);
+    }
+
+    h1, h2, h3, p {
+      margin: 0;
+    }
+
+    h1 {
+      margin-top: 24px;
+      font-size: clamp(46px, 7vw, 78px);
+      line-height: 0.96;
+      letter-spacing: -0.07em;
+      color: var(--navy);
+      text-wrap: balance;
+    }
+
+    html[lang="ko"] h1 {
+      font-size: clamp(38px, 4.7vw, 56px);
+      line-height: 1.14;
+      letter-spacing: -0.065em;
+      max-width: 620px;
+      word-break: keep-all;
+      overflow-wrap: normal;
+      line-break: strict;
+    }
+
+    html[lang="ko"] .hero-copy,
+    html[lang="ko"] .section-copy,
+    html[lang="ko"] .preview-card p,
+    html[lang="ko"] .faq-item p,
+    html[lang="ko"] .info-card p,
+    html[lang="ko"] .floating-card p {
+      word-break: keep-all;
+      overflow-wrap: normal;
+      line-height: 1.78;
+    }
+
+    html[lang="ko"] .section-title {
+      font-size: clamp(34px, 4.1vw, 48px);
+      word-break: keep-all;
+      overflow-wrap: normal;
+      line-break: strict;
+      line-height: 1.16;
+      letter-spacing: -0.055em;
+    }
+
+    html[lang="ko"] .preview-card h3,
+    html[lang="ko"] .info-card h3,
+    html[lang="ko"] .faq-item h3,
+    html[lang="ko"] .missing-card h3 {
+      word-break: keep-all;
+      overflow-wrap: normal;
+      line-break: strict;
+      letter-spacing: -0.04em;
+    }
+
+    html[lang="ko"] .preview-card h3 {
+      font-size: 22px;
+      line-height: 1.28;
+    }
+
+    html[lang="ko"] .cta-panel h2 {
+      font-size: clamp(34px, 4.2vw, 50px);
+      line-height: 1.16;
+      word-break: keep-all;
+      overflow-wrap: normal;
+      line-break: strict;
+      max-width: 820px;
+    }
+
+    .hero-copy {
+      margin-top: 24px;
+      max-width: 610px;
+      font-size: 19px;
+      color: var(--muted);
+      line-height: 1.75;
+      letter-spacing: -0.015em;
+    }
+
+    .hero-actions {
+      margin-top: 34px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      font-weight: 750;
+      font-size: 15px;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button-primary {
+      color: var(--white);
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      box-shadow: 0 18px 42px rgba(47, 124, 115, 0.24);
+    }
+
+    .button-secondary {
+      color: var(--navy);
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 30px rgba(10, 30, 80, 0.06);
+    }
+
+    .small-note {
+      margin-top: 18px;
+      color: var(--muted-2);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 560px;
+    }
+
+    .orb {
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      top: 40px;
+      right: 20px;
+      background:
+        radial-gradient(circle at 34% 25%, #ffffff 0 8%, rgba(255,255,255,0.50) 9% 18%, transparent 19%),
+        linear-gradient(135deg, rgba(16, 35, 63, 0.96), rgba(47, 124, 115, 0.92));
+      box-shadow: 0 40px 100px rgba(47, 124, 115, 0.24);
+    }
+
+    .orb::before,
+    .orb::after {
+      content: "";
+      position: absolute;
+      border: 1.4px solid rgba(255, 255, 255, 0.46);
+      border-radius: 50%;
+    }
+
+    .orb::before {
+      inset: 74px 26px;
+      transform: rotate(-24deg);
+    }
+
+    .orb::after {
+      inset: 34px 104px;
+      transform: rotate(24deg);
+    }
+
+    .floating-card {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(230, 235, 243, 0.88);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(18px);
+      border-radius: 24px;
+      padding: 22px;
+      color: var(--ink);
+    }
+
+    .floating-card strong {
+      display: block;
+      color: var(--navy);
+      font-size: 14px;
+      margin-bottom: 7px;
+      letter-spacing: -0.02em;
+    }
+
+    .floating-card p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .card-one {
+      left: 0;
+      top: 40px;
+      width: 260px;
+    }
+
+    .card-two {
+      right: 8px;
+      bottom: 74px;
+      width: 300px;
+    }
+
+    .card-three {
+      left: 50px;
+      bottom: 0;
+      width: 250px;
+      background: rgba(7, 27, 77, 0.94);
+      color: white;
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .card-three strong,
+    .card-three p {
+      color: white;
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(280px, 0.58fr);
+      gap: 42px;
+      align-items: end;
+      margin-bottom: 44px;
+    }
+
+    .section-title {
+      margin-top: 18px;
+      color: var(--navy);
+      font-size: clamp(34px, 4.4vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -0.055em;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.75;
+      letter-spacing: -0.012em;
+    }
+
+    .panel {
+      background: rgba(255, 255, 255, 0.74);
+      border: 1px solid rgba(230, 235, 243, 0.9);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(310px, 0.58fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .why-main {
+      padding: 38px;
+    }
+
+    .why-main p + p {
+      margin-top: 18px;
+    }
+
+    .missing-card {
+      padding: 30px;
+      background: linear-gradient(180deg, #ffffff, #f7faff);
+    }
+
+    .missing-card h3 {
+      color: var(--navy);
+      font-size: 22px;
+      letter-spacing: -0.04em;
+      margin-bottom: 22px;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 14px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .check-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: var(--ink);
+      font-weight: 650;
+      letter-spacing: -0.02em;
+    }
+
+    .check-list li::before {
+      content: "";
+      flex: 0 0 auto;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--blue-soft);
+      border: 1px solid rgba(47, 124, 115, 0.20);
+      margin-top: 2px;
+    }
+
+    .cards-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .info-card {
+      padding: 28px;
+      border-radius: var(--radius-lg);
+      background: var(--white);
+      border: 1px solid var(--line);
+      box-shadow: 0 14px 38px rgba(10, 30, 80, 0.055);
+    }
+
+    .number {
+      display: inline-flex;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      background: var(--surface);
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 24px;
+    }
+
+    .info-card h3 {
+      color: var(--navy);
+      font-size: 21px;
+      line-height: 1.15;
+      letter-spacing: -0.045em;
+      margin-bottom: 12px;
+    }
+
+    .info-card p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .gap-section {
+      max-width: 100%;
+      background:
+        radial-gradient(circle at top right, rgba(112, 170, 155, 0.22), transparent 32rem),
+        linear-gradient(135deg, #10233F, #1F4E4A 50%, #2F7C73);
+      color: white;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    .gap-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 104px 22px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.66fr);
+      gap: 46px;
+      align-items: center;
+    }
+
+    .gap-inner .badge {
+      color: #dbe7ff;
+      background: rgba(255, 255, 255, 0.10);
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .gap-inner .section-title,
+    .gap-inner .section-copy {
+      color: white;
+    }
+
+    .gap-inner .section-copy {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .quote-panel {
+      padding: 32px;
+      border-radius: var(--radius-xl);
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(16px);
+    }
+
+    .quote-panel p {
+      font-size: 21px;
+      line-height: 1.55;
+      letter-spacing: -0.04em;
+      color: white;
+    }
+
+    .quote-panel span {
+      display: block;
+      margin-top: 18px;
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    .preview-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .preview-card {
+      padding: 28px;
+      border-radius: var(--radius-lg);
+      background: var(--white);
+      border: 1px solid var(--line);
+      box-shadow: 0 14px 42px rgba(10, 30, 80, 0.055);
+      min-height: 230px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .preview-label {
+      color: var(--blue);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      font-weight: 850;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .preview-card h3 {
+      color: var(--navy);
+      font-size: 24px;
+      line-height: 1.18;
+      letter-spacing: -0.055em;
+      margin-bottom: 16px;
+    }
+
+    .preview-card p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .preview-card.featured {
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      color: white;
+      border-color: transparent;
+    }
+
+    .preview-card.featured .preview-label,
+    .preview-card.featured h3,
+    .preview-card.featured p {
+      color: white;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .faq-item {
+      padding: 28px 30px;
+      border-radius: var(--radius-lg);
+      background: var(--white);
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 34px rgba(10, 30, 80, 0.045);
+    }
+
+    .faq-item h3 {
+      color: var(--navy);
+      font-size: 21px;
+      letter-spacing: -0.04em;
+      margin-bottom: 10px;
+    }
+
+    .faq-item p {
+      color: var(--muted);
+      font-size: 15.5px;
+      line-height: 1.72;
+    }
+
+    .faq-item p + p {
+      margin-top: 12px;
+    }
+
+    .final-cta {
+      padding-bottom: 120px;
+    }
+
+    .cta-panel {
+      position: relative;
+      overflow: hidden;
+      padding: 62px;
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at top right, rgba(47, 124, 115, 0.16), transparent 28rem),
+        linear-gradient(135deg, #ffffff, #f5faf8);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .cta-panel::before {
+      content: "";
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: rgba(47, 124, 115, 0.08);
+      left: -120px;
+      bottom: -170px;
+    }
+
+    .cta-panel > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-panel h2 {
+      max-width: 780px;
+      margin: 0 auto;
+      color: var(--navy);
+      font-size: clamp(34px, 4.7vw, 58px);
+      line-height: 1.04;
+      letter-spacing: -0.06em;
+    }
+
+    .cta-panel p {
+      max-width: 680px;
+      margin: 22px auto 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    .cta-panel .button {
+      margin-top: 30px;
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      background: white;
+    }
+
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--muted-2);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 920px) {
+      .nav-links a:not(.nav-cta) {
+        display: none;
+      }
+
+      .hero,
+      .section-header,
+      .why-grid,
+      .gap-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 62px;
+        gap: 38px;
+      }
+
+      .hero-visual {
+        min-height: 520px;
+      }
+
+      .orb {
+        right: 50%;
+        transform: translateX(50%);
+      }
+
+      .cards-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .section {
+        padding: 76px 20px;
+      }
+
+      .nav-inner {
+        padding: 14px 18px;
+      }
+
+      .brand {
+        font-size: 18px;
+      }
+
+      .nav-cta {
+        padding: 9px 12px;
+        font-size: 13px;
+      }
+
+      h1 {
+        font-size: 48px;
+        letter-spacing: -0.065em;
+      }
+
+      html[lang="ko"] h1 {
+        font-size: 38px;
+        line-height: 1.16;
+        max-width: 100%;
+      }
+
+      html[lang="ko"] .section-title {
+        font-size: 36px;
+        line-height: 1.18;
+      }
+
+      html[lang="ko"] .cta-panel h2 {
+        font-size: 34px;
+        line-height: 1.18;
+      }
+
+      .hero-copy {
+        font-size: 17px;
+      }
+
+      .hero-actions {
+        align-items: stretch;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .hero-visual {
+        min-height: 470px;
+      }
+
+      .orb {
+        width: 270px;
+        height: 270px;
+        top: 56px;
+      }
+
+      .floating-card {
+        padding: 18px;
+      }
+
+      .card-one {
+        width: 235px;
+        left: 0;
+        top: 20px;
+      }
+
+      .card-two {
+        width: 250px;
+        right: 0;
+        bottom: 78px;
+      }
+
+      .card-three {
+        width: 230px;
+        left: 10px;
+        bottom: 0;
+      }
+
+      .why-main,
+      .missing-card,
+      .info-card,
+      .preview-card,
+      .faq-item {
+        padding: 24px;
+      }
+
+      .preview-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gap-inner {
+        padding: 82px 20px;
+      }
+
+      .quote-panel p {
+        font-size: 19px;
+      }
+
+      .cta-panel {
+        padding: 42px 24px;
+        border-radius: 28px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="nav">
+      <div class="nav-inner">
+        <a class="brand" href="#top" aria-label="Leeora home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>Leeora</span>
+        </a>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#why">Why</a>
+          <a href="#for">Who it’s for</a>
+          <a href="#community">Community</a>
+          <a href="#join" class="nav-cta">Share Your Perspective</a>
+          <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch language">KR</button>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="section hero">
+        <div class="hero-content reveal">
+          <div class="badge"><span class="badge-dot"></span>For internationally educated people navigating career direction</div>
+          <h1>Your international experience deserves more thoughtful career conversations.</h1>
+          <p class="hero-copy">Leeora is a global community for internationally educated students, graduates, and early-career individuals exploring career direction, identity, and life after global education.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#join">Share Your Perspective</a>
+            <a class="button button-secondary" href="#community">Explore the Community</a>
+          </div>
+          <p class="small-note">Community first. Honest perspective before polished answers.</p>
+        </div>
+
+        <div class="hero-visual reveal" aria-hidden="true">
+          <div class="orb"></div>
+          <div class="floating-card card-one">
+            <strong>Unfinished questions</strong>
+            <p>What should my international experience mean for my next step?</p>
+          </div>
+          <div class="floating-card card-two">
+            <strong>Shared perspective</strong>
+            <p>Stories from people navigating similar transitions, uncertainty, and direction.</p>
+          </div>
+          <div class="floating-card card-three">
+            <strong>Community first</strong>
+            <p>A calmer space to think before turning questions into decisions.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="why">
+        <div class="section-header reveal">
+          <div>
+            <div class="badge"><span class="badge-dot"></span>Why Leeora exists</div>
+            <h2 class="section-title">Career information is everywhere. Finding what truly relates to your situation is harder.</h2>
+          </div>
+          <p class="section-copy">Leeora exists for the questions that often sit between international education, identity, and future direction.</p>
+        </div>
+
+        <div class="why-grid reveal">
+          <div class="panel why-main">
+            <p class="section-copy">Most career platforms focus on outcomes, titles, and final decisions.</p>
+            <p class="section-copy">Leeora focuses on the uncertainty behind those decisions — how internationally educated people think through direction, compare possibilities, and navigate transitions that are often difficult to explain clearly.</p>
+          </div>
+          <div class="panel missing-card">
+            <h3>What often feels missing</h3>
+            <ul class="check-list">
+              <li>Real stories behind decisions</li>
+              <li>Perspectives from similar experiences</li>
+              <li>Space for unfinished thoughts and questions</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="for">
+        <div class="section-header reveal">
+          <div>
+            <div class="badge"><span class="badge-dot"></span>Who this is for</div>
+            <h2 class="section-title">For internationally educated students, graduates, and early-career individuals</h2>
+          </div>
+          <p class="section-copy">Leeora is designed for people navigating career direction across different countries, industries, identities, and transitions after international education.</p>
+        </div>
+
+        <div class="cards-3 reveal">
+          <article class="info-card">
+            <span class="number">01</span>
+            <h3>International education experience</h3>
+            <p>For people carrying experiences, perspectives, and questions shaped by studying abroad.</p>
+          </article>
+          <article class="info-card">
+            <span class="number">02</span>
+            <h3>Still exploring direction</h3>
+            <p>Thinking through industries, locations, long-term direction, and what kind of life feels meaningful.</p>
+          </article>
+          <article class="info-card">
+            <span class="number">03</span>
+            <h3>Looking for thoughtful perspective</h3>
+            <p>A space for honest conversations, shared experiences, and reflections that usually stay private.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="gap-section">
+        <div class="gap-inner reveal">
+          <div>
+            <div class="badge"><span class="badge-dot"></span>The gap we see</div>
+            <h2 class="section-title">Sometimes the hardest part isn’t lack of information. It’s figuring out what actually fits your life.</h2>
+            <p class="section-copy" style="margin-top: 24px;">Many internationally educated people are not simply choosing jobs.</p>
+            <p class="section-copy" style="margin-top: 14px;">They are navigating identity, expectations, uncertainty, geography, language, belonging, and future direction — often all at the same time.</p>
+            <p class="section-copy" style="margin-top: 14px;">Leeora exists to make those conversations feel more open, thoughtful, and less isolating.</p>
+          </div>
+          <div class="quote-panel">
+            <p>“It is not always about having more information. Sometimes, it is about finding a space where your questions finally make sense.”</p>
+            <span>Leeora community principle</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="community">
+        <div class="section-header reveal">
+          <div>
+            <div class="badge"><span class="badge-dot"></span>Community Preview</div>
+            <h2 class="section-title">Inside the early Leeora community</h2>
+          </div>
+          <p class="section-copy">Leeora is designed to feel like a thoughtful space where people can share unfinished thoughts, honest questions, and career uncertainty more openly.</p>
+        </div>
+
+        <div class="preview-grid reveal">
+          <article class="preview-card">
+            <div>
+              <div class="preview-label">Today’s question</div>
+              <h3>How do you decide between staying global and returning home?</h3>
+            </div>
+            <p>A conversation about direction, identity, opportunity, and what people value long-term.</p>
+          </article>
+
+          <article class="preview-card">
+            <div>
+              <div class="preview-label">Weekly perspective</div>
+              <h3>What part of international education becomes hardest to explain later?</h3>
+            </div>
+            <p>Exploring the gap between lived experience and how careers are usually evaluated.</p>
+          </article>
+
+          <article class="preview-card featured">
+            <div>
+              <div class="preview-label">Featured reflection</div>
+              <h3>Most platforms focus on polished outcomes. Leeora is more interested in the thinking behind them.</h3>
+            </div>
+            <p>A place for the process behind the profile, the decision, and the next step.</p>
+          </article>
+
+          <article class="preview-card">
+            <div>
+              <div class="preview-label">Community insight</div>
+              <h3>Many people quietly carry the same questions longer than they realize.</h3>
+            </div>
+            <p>Shared uncertainty often becomes the beginning of meaningful conversation.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="section-header reveal">
+          <div>
+            <div class="badge"><span class="badge-dot"></span>FAQ</div>
+            <h2 class="section-title">A calmer way to start career conversations</h2>
+          </div>
+          <p class="section-copy">Leeora is built to reduce pressure, not add more of it.</p>
+        </div>
+
+        <div class="faq-list reveal">
+          <article class="faq-item">
+            <h3>What kind of conversations happen inside Leeora?</h3>
+            <p>People in Leeora talk about career direction, uncertainty, identity, transitions after international education, and questions that are often difficult to discuss openly elsewhere.</p>
+            <p>Some conversations stay as reflection and shared perspective. Others may eventually lead to clearer direction, meaningful connections, or new opportunities over time.</p>
+          </article>
+
+          <article class="faq-item">
+            <h3>Who is Leeora designed for?</h3>
+            <p>Leeora is designed for internationally educated students, graduates, and early-career individuals navigating different career directions, transitions, and possibilities globally.</p>
+          </article>
+
+          <article class="faq-item">
+            <h3>Do I need to have everything figured out already?</h3>
+            <p>Not at all.</p>
+            <p>Many people join Leeora while still thinking through uncertainty, transition, identity, direction, or future possibilities.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section final-cta" id="join">
+        <div class="cta-panel reveal">
+          <div class="badge"><span class="badge-dot"></span>Early community</div>
+          <h2>We’re looking for the first people who want to help shape the Leeora community.</h2>
+          <p>Tell us a little about your experience, questions, or thoughts that still feel difficult to fully explain.</p>
+          <p>Selected early members will be invited to join the first Leeora Slack community.</p>
+          <a class="button button-primary" href="https://forms.gle/REPLACE_WITH_YOUR_FORM_LINK" target="_blank" rel="noopener">Share Your Perspective</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <span>© 2026 Leeora Careers</span>
+        <span>Community first. Perspective before pressure.</span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const translations = {
+      "Share Your Perspective": "관점 공유하기",
+      "For internationally educated people navigating career direction": "해외 교육 경험 이후의 커리어 방향을 고민하는 사람들을 위해",
+      "Your international experience deserves more thoughtful career conversations.": "해외 경험은 더 깊은 커리어 대화로 이어져야 합니다.",
+      "Leeora is a global community for internationally educated students, graduates, and early-career individuals exploring career direction, identity, and life after global education.": "Leeora는 해외에서 공부했거나 글로벌 경험을 가진 학생, 졸업생, 초기 커리어 단계의 사람들이 커리어 방향, 정체성, 그리고 그 이후의 삶을 함께 탐색하는 글로벌 커뮤니티입니다.",
+      "Explore the Community": "커뮤니티 둘러보기",
+      "Community first. Honest perspective before polished answers.": "커뮤니티가 먼저입니다. 완성된 답보다 솔직한 관점을 먼저 나눕니다.",
+      "Unfinished questions": "아직 정리되지 않은 질문",
+      "What should my international experience mean for my next step?": "내 해외 경험은 다음 단계에서 어떤 의미가 될 수 있을까?",
+      "Shared perspective": "함께 나누는 관점",
+      "Stories from people navigating similar transitions, uncertainty, and direction.": "비슷한 전환, 불확실성, 방향성을 고민하는 사람들의 이야기.",
+      "Community first": "커뮤니티가 먼저",
+      "A calmer space to think before turning questions into decisions.": "질문을 결정으로 바꾸기 전에 더 차분히 생각할 수 있는 공간.",
+      "Why Leeora exists": "Leeora가 존재하는 이유",
+      "Career information is everywhere. Finding what truly relates to your situation is harder.": "커리어 정보는 많습니다. 하지만 내 상황에 맞는 것을 찾기는 어렵습니다.",
+      "Leeora exists for the questions that often sit between international education, identity, and future direction.": "Leeora는 해외 교육 경험, 정체성, 그리고 앞으로의 방향 사이에 놓인 질문들을 위해 존재합니다.",
+      "Most career platforms focus on outcomes, titles, and final decisions.": "대부분의 커리어 플랫폼은 결과, 직함, 최종 선택에 집중합니다.",
+      "Leeora focuses on the uncertainty behind those decisions — how internationally educated people think through direction, compare possibilities, and navigate transitions that are often difficult to explain clearly.": "Leeora는 그 결정 뒤에 있는 불확실성에 집중합니다. 해외 경험을 가진 사람들이 방향을 고민하고, 가능성을 비교하고, 말로 설명하기 어려운 전환을 어떻게 지나가는지 함께 살펴봅니다.",
+      "What often feels missing": "자주 빠져 있다고 느끼는 것들",
+      "Real stories behind decisions": "결정 뒤에 있는 실제 이야기",
+      "Perspectives from similar experiences": "비슷한 경험에서 나온 관점",
+      "Space for unfinished thoughts and questions": "아직 완성되지 않은 생각과 질문을 나눌 수 있는 공간",
+      "Who this is for": "누구를 위한 공간인가",
+      "For internationally educated students, graduates, and early-career individuals": "해외 교육 경험을 가진 학생, 졸업생, 초기 커리어를 위해",
+      "Leeora is designed for people navigating career direction across different countries, industries, identities, and transitions after international education.": "Leeora는 해외 교육 이후 국가, 산업, 정체성, 전환의 경계에서 커리어 방향을 고민하는 사람들을 위해 만들어졌습니다.",
+      "International education experience": "해외 교육 경험",
+      "For people carrying experiences, perspectives, and questions shaped by studying abroad.": "해외에서 공부하며 형성된 경험, 관점, 질문을 가진 사람들을 위한 공간입니다.",
+      "Still exploring direction": "아직 방향을 탐색하는 중",
+      "Thinking through industries, locations, long-term direction, and what kind of life feels meaningful.": "산업, 지역, 장기적인 방향, 그리고 어떤 삶이 의미 있게 느껴지는지 고민하는 사람들을 위한 공간입니다.",
+      "Looking for thoughtful perspective": "더 깊이 있는 관점을 찾는 사람",
+      "A space for honest conversations, shared experiences, and reflections that usually stay private.": "평소에는 쉽게 꺼내기 어려운 생각, 경험, 고민을 솔직하게 나누는 공간입니다.",
+      "The gap we see": "우리가 보는 간극",
+      "Sometimes the hardest part isn’t lack of information. It’s figuring out what actually fits your life.": "때로 가장 어려운 것은 정보 부족이 아닙니다. 내 삶에 맞는 것을 알아가는 일입니다.",
+      "Many internationally educated people are not simply choosing jobs.": "해외 경험을 가진 많은 사람들은 단순히 직업을 고르는 중이 아닙니다.",
+      "They are navigating identity, expectations, uncertainty, geography, language, belonging, and future direction — often all at the same time.": "그들은 정체성, 기대, 불확실성, 지역, 언어, 소속감, 미래 방향을 동시에 고민하고 있습니다.",
+      "Leeora exists to make those conversations feel more open, thoughtful, and less isolating.": "Leeora는 그런 대화가 더 열려 있고, 더 깊이 있으며, 덜 외롭게 느껴지도록 만들어졌습니다.",
+      "“It is not always about having more information. Sometimes, it is about finding a space where your questions finally make sense.”": "“항상 더 많은 정보가 필요한 것은 아닙니다. 때로는 내 질문이 비로소 이해되는 공간이 필요합니다.”",
+      "Leeora community principle": "Leeora 커뮤니티 원칙",
+      "Community Preview": "커뮤니티 미리보기",
+      "Inside the early Leeora community": "초기 Leeora 커뮤니티 안에서",
+      "Leeora is designed to feel like a thoughtful space where people can share unfinished thoughts, honest questions, and career uncertainty more openly.": "Leeora는 아직 정리되지 않은 생각, 솔직한 질문, 커리어에 대한 불확실성을 더 편하게 나눌 수 있는 깊이 있는 공간을 지향합니다.",
+      "Today’s question": "오늘의 질문",
+      "How do you decide between staying global and returning home?": "글로벌 커리어를 이어갈지, 돌아갈지를 어떻게 결정하나요?",
+      "A conversation about direction, identity, opportunity, and what people value long-term.": "방향, 정체성, 기회, 그리고 장기적으로 무엇을 중요하게 여기는지에 관한 대화입니다.",
+      "Weekly perspective": "이번 주의 관점",
+      "What part of international education becomes hardest to explain later?": "해외 교육 경험 중 나중에 가장 설명하기 어려워지는 부분은 무엇일까요?",
+      "Exploring the gap between lived experience and how careers are usually evaluated.": "실제로 살아낸 경험과 커리어가 평가되는 방식 사이의 간극을 함께 살펴봅니다.",
+      "Featured reflection": "선정된 생각",
+      "Most platforms focus on polished outcomes. Leeora is more interested in the thinking behind them.": "대부분의 플랫폼은 완성된 결과에 집중합니다. Leeora는 그 결과 뒤의 생각에 더 관심이 있습니다.",
+      "A place for the process behind the profile, the decision, and the next step.": "프로필, 결정, 다음 단계 뒤에 있는 과정을 함께 들여다보는 공간입니다.",
+      "Community insight": "커뮤니티 인사이트",
+      "Many people quietly carry the same questions longer than they realize.": "많은 사람들은 생각보다 오래 비슷한 질문을 조용히 품고 있습니다.",
+      "Shared uncertainty often becomes the beginning of meaningful conversation.": "함께 나눈 불확실성은 의미 있는 대화의 시작이 되기도 합니다.",
+      "A calmer way to start career conversations": "커리어 대화를 더 차분하게 시작하는 방식",
+      "Leeora is built to reduce pressure, not add more of it.": "Leeora는 압박을 더하는 공간이 아니라, 압박을 줄이는 공간을 지향합니다.",
+      "What kind of conversations happen inside Leeora?": "Leeora 안에서는 어떤 대화가 오가나요?",
+      "People in Leeora talk about career direction, uncertainty, identity, transitions after international education, and questions that are often difficult to discuss openly elsewhere.": "Leeora에서는 커리어 방향, 불확실성, 정체성, 해외 교육 이후의 전환, 그리고 다른 곳에서는 쉽게 꺼내기 어려운 질문들을 나눕니다.",
+      "Some conversations stay as reflection and shared perspective. Others may eventually lead to clearer direction, meaningful connections, or new opportunities over time.": "어떤 대화는 생각과 관점의 공유로 남고, 어떤 대화는 시간이 지나 더 명확한 방향, 의미 있는 연결, 새로운 가능성으로 이어질 수 있습니다.",
+      "Who is Leeora designed for?": "Leeora는 누구를 위해 만들어졌나요?",
+      "Leeora is designed for internationally educated students, graduates, and early-career individuals navigating different career directions, transitions, and possibilities globally.": "Leeora는 해외 교육 경험을 가진 학생, 졸업생, 초기 커리어 단계의 사람들이 글로벌하게 다양한 커리어 방향, 전환, 가능성을 탐색할 수 있도록 만들어졌습니다.",
+      "Do I need to have everything figured out already?": "이미 모든 방향이 정해져 있어야 하나요?",
+      "Not at all.": "전혀 그렇지 않습니다.",
+      "Many people join Leeora while still thinking through uncertainty, transition, identity, direction, or future possibilities.": "많은 사람들은 아직 불확실성, 전환, 정체성, 방향, 미래 가능성을 고민하는 과정에서 Leeora에 함께하게 됩니다.",
+      "Early community": "초기 커뮤니티",
+      "We’re looking for the first people who want to help shape the Leeora community.": "Leeora의 첫 커뮤니티를 함께 만들어갈 사람들을 기다립니다.",
+      "Tell us a little about your experience, questions, or thoughts that still feel difficult to fully explain.": "당신의 경험, 고민, 혹은 아직 말로 다 정리되지 않은 생각을 짧게 들려주세요.",
+      "Selected early members will be invited to join the first Leeora Slack community.": "초기 멤버로 선정되면 Leeora의 첫 Slack 커뮤니티에 가장 먼저 합류하게 됩니다.",
+      "Community first. Perspective before pressure.": "커뮤니티가 먼저입니다. 압박보다 관점을 먼저 나눕니다."
+    };
+
+    const originalText = new Map();
+    const languageToggle = document.getElementById('languageToggle');
+    let currentLanguage = 'en';
+
+    function walkTextNodes(root) {
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+        acceptNode(node) {
+          if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+          if (node.parentElement && node.parentElement.id === 'languageToggle') return NodeFilter.FILTER_REJECT;
+          if (node.parentElement && ['SCRIPT', 'STYLE'].includes(node.parentElement.tagName)) return NodeFilter.FILTER_REJECT;
+          return NodeFilter.FILTER_ACCEPT;
+        }
+      });
+      const nodes = [];
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+      return nodes;
+    }
+
+    function setLanguage(lang) {
+      const nodes = walkTextNodes(document.body);
+      nodes.forEach((node) => {
+        if (!originalText.has(node)) originalText.set(node, node.nodeValue);
+        const sourceText = originalText.get(node);
+        const trimmed = sourceText.trim();
+        const leadingLength = sourceText.length - sourceText.trimStart().length;
+        const trailingLength = sourceText.length - sourceText.trimEnd().length;
+        const leading = sourceText.slice(0, leadingLength);
+        const trailing = sourceText.slice(sourceText.length - trailingLength);
+        if (lang === 'ko' && translations[trimmed]) {
+          node.nodeValue = leading + translations[trimmed] + trailing;
+        } else if (lang === 'en') {
+          node.nodeValue = sourceText;
+        }
+      });
+      currentLanguage = lang;
+      document.documentElement.lang = lang === 'ko' ? 'ko' : 'en';
+      languageToggle.textContent = lang === 'ko' ? 'EN' : 'KR';
+    }
+
+    languageToggle.addEventListener('click', () => {
+      setLanguage(currentLanguage === 'en' ? 'ko' : 'en');
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+  </script>
+</body>
+</html>
