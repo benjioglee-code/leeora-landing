@@ -1,80 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Leeora — Thoughtful Global Career Community</title>
-  <meta name="description" content="Leeora is a calmer global career community for people navigating identity, transition, ambition, and what comes next." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leeora — Community for Growth & Connection</title>
+  
+  <!-- Fonts: Plus Jakarta Sans (EN display/body) & Noto Sans KR (KR body/display) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  
   <style>
     :root {
-      --navy: #10233F;
-      --navy-2: #18315F;
-      --blue: #3A8F84;
-      --blue-soft: #EAF6F3;
-      --ink: #10233F;
-      --muted: #64706F;
-      --muted-2: #87918F;
-      --line: #E2EAE8;
-      --surface: #F7F9F8;
-      --surface-2: #FBFCFC;
-      --white: #ffffff;
-      --shadow: 0 24px 70px rgba(16, 35, 63, 0.10);
-      --shadow-soft: 0 16px 45px rgba(16, 35, 63, 0.07);
-      --radius-xl: 28px;
-      --radius-lg: 22px;
-      --radius-md: 16px;
-      --max: 1120px;
+      /* Palette */
+      --navy: #12303f;
+      --navy-deep: #0d2531;
+      --teal: #2c7a6e;
+      --teal-deep: #1d5b54;
+      --ink: #173140;
+      --gray: #64777f;
+      --gray-soft: #8a9aa1;
+      --bg: #f6f9f8;
+      --card: #ffffff;
+      --tint: #e6f1ee;
+      --line: #e8eeec;
+      --radius: 24px;
+      --radius-sm: 16px;
+      --font-en: "Plus Jakarta Sans", "Noto Sans KR", sans-serif;
+      --font-kr: "Noto Sans KR", "Plus Jakarta Sans", sans-serif;
+      
+      /* Spacing & Transitions */
+      --transition: cubic-bezier(0.16, 1, 0.3, 1);
+      --duration: 0.5s;
     }
 
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
     html {
       scroll-behavior: smooth;
+      background: var(--bg);
     }
 
     body {
-      margin: 0;
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: var(--font-en);
       color: var(--ink);
-      background:
-        radial-gradient(circle at top left, rgba(47, 124, 115, 0.12), transparent 34rem),
-        linear-gradient(180deg, #ffffff 0%, #f8fbfa 46%, #ffffff 100%);
-      line-height: 1.6;
+      background: var(--bg);
       -webkit-font-smoothing: antialiased;
+      line-height: 1.65;
+      letter-spacing: -0.01em;
+      word-break: keep-all; /* Prevents awkward mid-word line breaks in Korean */
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    body.kr {
+      font-family: var(--font-kr);
+      letter-spacing: -0.02em;
     }
 
-    .page-shell {
+    /* Global typesetting rule for clean Korean word wrapping at spaces */
+    h1, h2, h3, p, span, a, li, button {
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    /* Container alignment */
+    .container {
       width: 100%;
-      overflow: hidden;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
     }
 
-    .nav {
+    /* Section defaults */
+    section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    /* Typography */
+    h1, h2, h3 {
+      font-family: var(--font-en);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      font-weight: 800;
+    }
+    
+    .kr h1, .kr h2, .kr h3 {
+      font-family: var(--font-kr);
+      letter-spacing: -0.035em;
+      line-height: 1.3;
+      font-weight: 700;
+    }
+
+
+    /* Balanced wrapping for polished KR/EN line breaks */
+    .lead, .sec-h, .sec-sub, .mockup-q, .qcard h3, .card h3, .card p, .why h2, .why p, .faq-q, .faq-a .inner, .sbody h3, .sbody p, .cta-box h2, .cta-box p {
+      text-wrap: balance;
+    }
+
+    .kr h1, .kr h2, .kr h3, .kr p, .kr span, .kr a, .kr li, .kr button {
+      word-break: keep-all;
+      overflow-wrap: normal;
+    }
+
+    @media (max-width: 520px) {
+      .hero h1 {
+        font-size: clamp(34px, 10vw, 42px);
+      }
+
+      .lead {
+        max-width: 94%;
+      }
+    }
+
+
+    @media (max-width: 520px) {
+      .kr .hero h1 {
+        font-size: clamp(32px, 8.7vw, 38px);
+        line-height: 1.32;
+        letter-spacing: -0.04em;
+      }
+
+      .kr .lead {
+        font-size: 16px;
+        line-height: 1.85;
+        max-width: 100%;
+      }
+    }
+
+    /* Sticky Header */
+    header {
       position: sticky;
       top: 0;
-      z-index: 20;
-      backdrop-filter: blur(18px);
-      background: rgba(255, 255, 255, 0.78);
-      border-bottom: 1px solid rgba(230, 235, 243, 0.72);
+      z-index: 100;
+      background: rgba(246, 249, 248, 0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(232, 238, 236, 0.6);
+      transition: background 0.3s, padding 0.3s;
+      padding: 20px 0;
     }
 
-    .nav-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 18px 22px;
+    header.scrolled {
+      padding: 14px 0;
+      background: rgba(246, 249, 248, 0.9);
+      box-shadow: 0 4px 20px rgba(13, 37, 49, 0.03);
+    }
+
+    .header-nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
     }
 
     .brand {
@@ -82,1159 +160,1376 @@
       align-items: center;
       gap: 10px;
       font-weight: 800;
-      letter-spacing: -0.03em;
+      font-size: 22px;
       color: var(--navy);
-      font-size: 20px;
+      letter-spacing: -0.02em;
+      cursor: pointer;
+      text-decoration: none;
     }
 
-    .brand-mark {
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      background:
-        linear-gradient(135deg, var(--navy), var(--blue));
-      position: relative;
-      box-shadow: 0 10px 28px rgba(47, 124, 115, 0.22);
+    .brand .logo-icon {
+      width: 28px;
+      height: 28px;
+      transition: transform 0.6s var(--transition);
     }
 
-    .brand-mark::before,
-    .brand-mark::after {
-      content: "";
-      position: absolute;
-      border: 1.5px solid rgba(255, 255, 255, 0.76);
-      border-radius: 50%;
-      inset: 7px 4px;
-      transform: rotate(-24deg);
+    .brand .logo-icon circle,
+    .brand .logo-icon ellipse {
+      stroke: url(#logoGrad);
+      stroke-width: 6px;
+      fill: none;
+      transition: stroke 0.3s;
     }
 
-    .brand-mark::after {
-      inset: 4px 10px;
-      transform: rotate(24deg);
+    .brand:hover .logo-icon {
+      transform: rotate(180deg) scale(1.05);
     }
 
     .nav-links {
-      display: flex;
+      display: none;
       align-items: center;
-      gap: 24px;
-      font-size: 14px;
-      color: var(--muted);
+      gap: 32px;
+    }
+
+    @media (min-width: 900px) {
+      .nav-links {
+        display: flex;
+      }
+    }
+
+    .nav-links a {
+      font-size: 14.5px;
       font-weight: 600;
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.2s;
     }
 
     .nav-links a:hover {
-      color: var(--navy);
+      color: var(--teal);
     }
 
-    .nav-cta {
-      padding: 10px 15px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--navy);
-      background: var(--white);
-      box-shadow: 0 8px 24px rgba(10, 30, 80, 0.06);
-    }
-
-    .language-toggle {
-      width: 44px;
-      height: 44px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: var(--white);
-      color: var(--navy);
-      font-family: inherit;
-      font-size: 13px;
-      font-weight: 800;
-      cursor: pointer;
-      box-shadow: 0 8px 24px rgba(10, 30, 80, 0.06);
-      transition: transform 180ms ease, border-color 180ms ease;
-    }
-
-    .language-toggle:hover {
-      transform: translateY(-1px);
-      border-color: rgba(47, 124, 115, 0.30);
-    }
-
-    .section {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 108px 22px;
-    }
-
-    .hero {
-      padding-top: 94px;
-      padding-bottom: 90px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
-      gap: 48px;
+    .header-right {
+      display: flex;
       align-items: center;
+      gap: 16px;
     }
 
+    /* Language Switch Button */
+    .lang-switch {
+      display: flex;
+      background: #fff;
+      padding: 4px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+    }
+
+    .lang-switch button {
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-family: var(--font-en);
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--gray);
+      padding: 6px 14px;
+      border-radius: 999px;
+      transition: background 0.3s, color 0.3s;
+      letter-spacing: 0.02em;
+    }
+
+    .lang-switch button.active {
+      background: var(--navy);
+      color: #fff;
+    }
+
+    .header-cta-btn {
+      display: none;
+      text-decoration: none;
+      background: linear-gradient(135deg, var(--teal), var(--teal-deep));
+      color: #fff;
+      font-weight: 700;
+      font-size: 13.5px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: none;
+      box-shadow: 0 6px 15px rgba(29, 91, 84, 0.2);
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+
+    .header-cta-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(29, 91, 84, 0.3);
+    }
+
+    @media (min-width: 600px) {
+      .header-cta-btn {
+        display: inline-block;
+      }
+    }
+
+    /* Badges */
     .badge {
       display: inline-flex;
       align-items: center;
-      width: fit-content;
       gap: 8px;
-      padding: 8px 12px;
-      border: 1px solid rgba(47, 124, 115, 0.18);
-      background: rgba(234, 246, 243, 0.84);
-      color: var(--navy-2);
-      border-radius: 999px;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
-      letter-spacing: -0.01em;
-    }
-
-    .badge-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--blue);
-      box-shadow: 0 0 0 4px rgba(47, 124, 115, 0.14);
-    }
-
-    h1, h2, h3, p {
-      margin: 0;
-    }
-
-    h1 {
-      margin-top: 24px;
-      font-size: clamp(46px, 7vw, 78px);
-      line-height: 0.96;
-      letter-spacing: -0.07em;
-      color: var(--navy);
-      text-wrap: balance;
-    }
-
-    html[lang="ko"] h1 {
-      font-size: clamp(38px, 4.7vw, 56px);
-      line-height: 1.14;
-      letter-spacing: -0.065em;
-      max-width: 620px;
-      word-break: keep-all;
-      overflow-wrap: normal;
-      line-break: strict;
-    }
-
-    html[lang="ko"] .hero-copy,
-    html[lang="ko"] .section-copy,
-    html[lang="ko"] .preview-card p,
-    html[lang="ko"] .faq-item p,
-    html[lang="ko"] .info-card p,
-    html[lang="ko"] .floating-card p {
-      word-break: keep-all;
-      overflow-wrap: normal;
-      line-height: 1.78;
-    }
-
-    html[lang="ko"] .section-title {
-      font-size: clamp(34px, 4.1vw, 48px);
-      word-break: keep-all;
-      overflow-wrap: normal;
-      line-break: strict;
-      line-height: 1.16;
-      letter-spacing: -0.055em;
-    }
-
-    html[lang="ko"] .preview-card h3,
-    html[lang="ko"] .info-card h3,
-    html[lang="ko"] .faq-item h3,
-    html[lang="ko"] .missing-card h3 {
-      word-break: keep-all;
-      overflow-wrap: normal;
-      line-break: strict;
-      letter-spacing: -0.04em;
-    }
-
-    html[lang="ko"] .preview-card h3 {
-      font-size: 22px;
-      line-height: 1.28;
-    }
-
-    html[lang="ko"] .cta-panel h2 {
-      font-size: clamp(34px, 4.2vw, 50px);
-      line-height: 1.16;
-      word-break: keep-all;
-      overflow-wrap: normal;
-      line-break: strict;
-      max-width: 820px;
-    }
-
-    .hero-copy {
-      margin-top: 24px;
-      max-width: 610px;
-      font-size: 19px;
-      color: var(--muted);
-      line-height: 1.75;
-      letter-spacing: -0.015em;
-    }
-
-    .hero-actions {
-      margin-top: 34px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      align-items: center;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 20px;
+      letter-spacing: 0.04em;
+      padding: 8px 16px;
       border-radius: 999px;
-      font-weight: 750;
-      font-size: 15px;
-      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
-      cursor: pointer;
-    }
-
-    .button:hover {
-      transform: translateY(-1px);
-    }
-
-    .button-primary {
-      color: var(--white);
-      background: linear-gradient(135deg, var(--navy), var(--blue));
-      box-shadow: 0 18px 42px rgba(47, 124, 115, 0.24);
-    }
-
-    .button-secondary {
-      color: var(--navy);
-      background: rgba(255, 255, 255, 0.82);
-      border: 1px solid var(--line);
-      box-shadow: 0 12px 30px rgba(10, 30, 80, 0.06);
-    }
-
-    .small-note {
-      margin-top: 18px;
-      color: var(--muted-2);
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .hero-visual {
-      position: relative;
-      min-height: 560px;
-    }
-
-    .orb {
-      position: absolute;
-      width: 350px;
-      height: 350px;
-      border-radius: 50%;
-      top: 40px;
-      right: 20px;
-      background:
-        radial-gradient(circle at 34% 25%, #ffffff 0 8%, rgba(255,255,255,0.50) 9% 18%, transparent 19%),
-        linear-gradient(135deg, rgba(16, 35, 63, 0.96), rgba(47, 124, 115, 0.92));
-      box-shadow: 0 40px 100px rgba(47, 124, 115, 0.24);
-    }
-
-    .orb::before,
-    .orb::after {
-      content: "";
-      position: absolute;
-      border: 1.4px solid rgba(255, 255, 255, 0.46);
-      border-radius: 50%;
-    }
-
-    .orb::before {
-      inset: 74px 26px;
-      transform: rotate(-24deg);
-    }
-
-    .orb::after {
-      inset: 34px 104px;
-      transform: rotate(24deg);
-    }
-
-    .floating-card {
-      position: absolute;
-      background: rgba(255, 255, 255, 0.86);
-      border: 1px solid rgba(230, 235, 243, 0.88);
-      box-shadow: var(--shadow-soft);
-      backdrop-filter: blur(18px);
-      border-radius: 24px;
-      padding: 22px;
-      color: var(--ink);
-    }
-
-    .floating-card strong {
-      display: block;
-      color: var(--navy);
-      font-size: 14px;
-      margin-bottom: 7px;
-      letter-spacing: -0.02em;
-    }
-
-    .floating-card p {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.55;
-    }
-
-    .card-one {
-      left: 0;
-      top: 40px;
-      width: 260px;
-    }
-
-    .card-two {
-      right: 8px;
-      bottom: 74px;
-      width: 300px;
-    }
-
-    .card-three {
-      left: 50px;
-      bottom: 0;
-      width: 250px;
-      background: rgba(7, 27, 77, 0.94);
-      color: white;
-      border-color: rgba(255, 255, 255, 0.12);
-    }
-
-    .card-three strong,
-    .card-three p {
-      color: white;
-    }
-
-    .section-header {
-      display: grid;
-      grid-template-columns: minmax(0, 0.92fr) minmax(280px, 0.58fr);
-      gap: 42px;
-      align-items: end;
-      margin-bottom: 44px;
-    }
-
-    .section-title {
-      margin-top: 18px;
-      color: var(--navy);
-      font-size: clamp(34px, 4.4vw, 56px);
-      line-height: 1.05;
-      letter-spacing: -0.055em;
-    }
-
-    .section-copy {
-      color: var(--muted);
-      font-size: 17px;
-      line-height: 1.75;
-      letter-spacing: -0.012em;
-    }
-
-    .panel {
-      background: rgba(255, 255, 255, 0.74);
-      border: 1px solid rgba(230, 235, 243, 0.9);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .why-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.04fr) minmax(310px, 0.58fr);
-      gap: 24px;
-      align-items: stretch;
-    }
-
-    .why-main {
-      padding: 38px;
-    }
-
-    .why-main p + p {
-      margin-top: 18px;
-    }
-
-    .missing-card {
-      padding: 30px;
-      background: linear-gradient(180deg, #ffffff, #f7faff);
-    }
-
-    .missing-card h3 {
-      color: var(--navy);
-      font-size: 22px;
-      letter-spacing: -0.04em;
-      margin-bottom: 22px;
-    }
-
-    .check-list {
-      display: grid;
-      gap: 14px;
-      padding: 0;
-      margin: 0;
-      list-style: none;
-    }
-
-    .check-list li {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      color: var(--ink);
-      font-weight: 650;
-      letter-spacing: -0.02em;
-    }
-
-    .check-list li::before {
-      content: "";
-      flex: 0 0 auto;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: var(--blue-soft);
-      border: 1px solid rgba(47, 124, 115, 0.20);
-      margin-top: 2px;
-    }
-
-    .cards-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .info-card {
-      padding: 28px;
-      border-radius: var(--radius-lg);
-      background: var(--white);
-      border: 1px solid var(--line);
-      box-shadow: 0 14px 38px rgba(10, 30, 80, 0.055);
-    }
-
-    .number {
-      display: inline-flex;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      align-items: center;
-      justify-content: center;
-      background: var(--surface);
-      color: var(--blue);
-      font-size: 13px;
-      font-weight: 800;
+      background: var(--tint);
+      color: var(--teal-deep);
       margin-bottom: 24px;
     }
 
-    .info-card h3 {
-      color: var(--navy);
-      font-size: 21px;
-      line-height: 1.15;
-      letter-spacing: -0.045em;
-      margin-bottom: 12px;
+    .badge .led {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 0 3px rgba(44, 122, 110, 0.18);
+      animation: pulse 2s infinite;
     }
 
-    .info-card p {
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.7;
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0px rgba(44, 122, 110, 0.4); }
+      70% { box-shadow: 0 0 0 6px rgba(44, 122, 110, 0); }
+      100% { box-shadow: 0 0 0 0px rgba(44, 122, 110, 0); }
     }
 
-    .gap-section {
-      max-width: 100%;
-      background:
-        radial-gradient(circle at top right, rgba(112, 170, 155, 0.22), transparent 32rem),
-        linear-gradient(135deg, #10233F, #245C56 50%, #3A8F84);
-      color: white;
-      margin-top: 40px;
-      margin-bottom: 40px;
+    .badge.on-dark {
+      background: rgba(255, 255, 255, 0.12);
+      color: #cfe7e1;
     }
 
-    .gap-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 104px 22px;
+    .badge.on-dark .led {
+      background: #6fd0bf;
+      box-shadow: 0 0 0 3px rgba(111, 208, 191, 0.2);
+    }
+
+    /* Buttons */
+    .cta {
+      display: inline-block;
+      text-align: center;
+      background: linear-gradient(135deg, var(--teal), var(--teal-deep));
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 18px 38px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(29, 91, 84, 0.25);
+      transition: transform 0.2s var(--transition), box-shadow 0.2s;
+      text-decoration: none;
+    }
+
+    .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(29, 91, 84, 0.35);
+    }
+
+    .cta:active {
+      transform: translateY(0) scale(0.98);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      padding: 60px 0 100px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.66fr);
-      gap: 46px;
+      grid-template-columns: 1fr;
+      gap: 50px;
       align-items: center;
     }
 
-    .gap-inner .badge {
-      color: #dbe7ff;
-      background: rgba(255, 255, 255, 0.10);
-      border-color: rgba(255, 255, 255, 0.18);
+    @media (min-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+      }
     }
 
-    .gap-inner .section-title,
-    .gap-inner .section-copy {
-      color: white;
+    .hero-text {
+      text-align: left;
     }
 
-    .gap-inner .section-copy {
-      color: rgba(255, 255, 255, 0.78);
+    .hero h1 {
+      font-size: clamp(38px, 5.5vw, 56px);
+      color: var(--navy);
+      margin-bottom: 24px;
     }
 
-    .quote-panel {
-      padding: 32px;
-      border-radius: var(--radius-xl);
-      background: rgba(255, 255, 255, 0.10);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      backdrop-filter: blur(16px);
+    .lead {
+      font-size: clamp(16px, 2.2vw, 19px);
+      line-height: 1.6;
+      color: var(--gray);
+      margin-bottom: 36px;
     }
 
-    .quote-panel p {
-      font-size: 21px;
-      line-height: 1.55;
-      letter-spacing: -0.04em;
-      color: white;
+    .kr .lead {
+      line-height: 1.75;
     }
 
-    .quote-panel span {
-      display: block;
-      margin-top: 18px;
-      color: rgba(255, 255, 255, 0.68);
-      font-size: 14px;
-      font-weight: 650;
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
     }
 
-    .preview-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
+    @media (min-width: 480px) {
+      .hero-actions {
+        flex-direction: row;
+        align-items: center;
+        gap: 24px;
+      }
     }
 
-    .preview-card {
-      padding: 26px;
-      border-radius: var(--radius-lg);
-      background: var(--white);
+    .explore {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--gray);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .explore:hover {
+      color: var(--teal-deep);
+      transform: translateY(2px);
+    }
+
+    /* Hero visual mockup widget */
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+
+    .mockup-stack {
+      position: relative;
+      width: 100%;
+      max-width: 360px;
+      height: 350px;
+    }
+
+    .mockup-card {
+      position: absolute;
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: 0 20px 50px rgba(13, 37, 49, 0.08);
       border: 1px solid var(--line);
-      box-shadow: 0 14px 42px rgba(10, 30, 80, 0.055);
-      min-height: 210px;
+      background: var(--card);
+      transition: transform 0.6s var(--transition);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
-    .preview-label {
-      color: var(--blue);
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      font-weight: 850;
-      text-transform: uppercase;
-      margin-bottom: 24px;
+    .mockup-card.card-bottom {
+      width: 90%;
+      height: 90%;
+      left: 5%;
+      top: 15%;
+      background: linear-gradient(135deg, var(--navy-deep), var(--teal-deep));
+      transform: rotate(-4deg);
+      opacity: 0.6;
+      border: none;
     }
 
-    .preview-card h3 {
+    .mockup-card.card-middle {
+      width: 95%;
+      height: 95%;
+      left: 2.5%;
+      top: 5%;
+      background: var(--tint);
+      transform: rotate(3deg);
+      opacity: 0.85;
+    }
+
+    .mockup-card.card-top {
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      transform: rotate(-1deg);
+      z-index: 2;
+    }
+
+    .mockup-stack:hover .card-bottom {
+      transform: translate(-10px, 15px) rotate(-8deg);
+      opacity: 0.85;
+    }
+
+    .mockup-stack:hover .card-middle {
+      transform: translate(10px, -5px) rotate(6deg);
+    }
+
+    .mockup-stack:hover .card-top {
+      transform: translate(-5px, -10px) rotate(2deg);
+      box-shadow: 0 30px 60px rgba(13, 37, 49, 0.12);
+    }
+
+    .mockup-tag {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--teal);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .mockup-q {
+      font-size: clamp(18px, 3vw, 22px);
+      line-height: 1.35;
+      font-weight: 700;
       color: var(--navy);
-      font-size: 24px;
-      line-height: 1.18;
-      letter-spacing: -0.055em;
+    }
+
+    .kr .mockup-q {
+      line-height: 1.45;
+    }
+
+    .mockup-note-lines {
+      margin-top: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      width: 82%;
+    }
+
+    .mockup-note-lines span,
+    .qcard-note-lines span {
+      display: block;
+      height: 1px;
+      border-radius: 999px;
+      background: rgba(100, 119, 127, 0.18);
+    }
+
+    .mockup-note-lines span:nth-child(2),
+    .qcard-note-lines span:nth-child(2) {
+      width: 92%;
+    }
+
+    .mockup-note-lines span:nth-child(3),
+    .qcard-note-lines span:nth-child(3) {
+      width: 74%;
+    }
+
+    .mockup-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 22px;
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+    }
+
+    .mockup-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .mockup-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--tint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--teal-deep);
+    }
+
+    .mockup-meta {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gray-soft);
+    }
+
+    /* WHY SECTION - Dark Gradient */
+    .why {
+      background: linear-gradient(150deg, var(--navy) 10%, var(--teal-deep));
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .why::before {
+      content: '';
+      position: absolute;
+      top: -150px;
+      right: -150px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(44, 122, 110, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .why-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .why h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      color: #fff;
+      margin-bottom: 24px;
+      font-weight: 700;
+      letter-spacing: -0.045em;
+    }
+
+    .why p {
+      font-size: clamp(15px, 2.2vw, 18px);
+      line-height: 1.7;
+      color: #bcd4ce;
+      margin-bottom: 40px;
+    }
+
+    .kr .why p {
+      line-height: 1.8;
+    }
+
+    .why .quote {
+      position: relative;
+      margin-top: 40px;
+      padding: 30px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: clamp(16px, 2.4vw, 20px);
+      line-height: 1.5;
+      color: #e4f1ed;
+      text-align: left;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .why .quote::before {
+      content: '“';
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      font-size: 80px;
+      color: var(--teal);
+      font-family: serif;
+      line-height: 1;
+      opacity: 0.3;
+    }
+
+    .why .quote .src {
+      display: block;
+      margin-top: 16px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #7fb5aa;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* WHO SECTION - 3 Column Cards */
+    .who {
+      background: var(--bg);
+    }
+
+    .section-head {
+      max-width: 700px;
+      margin-bottom: 60px;
+    }
+
+    .sec-h {
+      font-size: clamp(28px, 4vw, 42px);
+      color: var(--navy);
       margin-bottom: 16px;
     }
 
-    .preview-card p {
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.65;
+    .sec-sub {
+      font-size: clamp(15px, 2vw, 17px);
+      line-height: 1.6;
+      color: var(--gray);
     }
 
-    .preview-card.featured {
-      background: linear-gradient(135deg, var(--navy), var(--blue));
-      color: white;
-      border-color: transparent;
-    }
-
-    .preview-card.featured .preview-label,
-    .preview-card.featured h3,
-    .preview-card.featured p {
-      color: white;
-    }
-
-    .faq-list {
+    .card-grid {
       display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-bottom: 50px;
+    }
+
+    @media (min-width: 768px) {
+      .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 36px 30px;
+      box-shadow: 0 10px 30px rgba(13, 37, 49, 0.03);
+      transition: transform 0.4s var(--transition), box-shadow 0.4s var(--transition);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 45px rgba(13, 37, 49, 0.08);
+      border-color: rgba(44, 122, 110, 0.15);
+    }
+
+    .card .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--tint);
+      color: var(--teal-deep);
+      font-weight: 800;
+      font-size: 15px;
+      margin-bottom: 24px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .card:hover .num {
+      background: var(--teal);
+      color: #fff;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      color: var(--navy);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .card p {
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: var(--gray);
+    }
+
+    .kr .card p {
+      line-height: 1.7;
+    }
+
+    .bridge-box {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .bridge {
+      display: inline-block;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--teal-deep);
+      line-height: 1.5;
+      cursor: pointer;
+      padding: 18px 36px;
+      background: var(--tint);
+      border-radius: var(--radius-sm);
+      transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+    }
+
+    .bridge:hover {
+      transform: translateY(-2px);
+      background: #dbede9;
+      box-shadow: 0 10px 25px rgba(44, 122, 110, 0.12);
+    }
+
+    /* INSIDE SECTION - Questions shared */
+    .inside {
+      background: var(--bg);
+      border-top: 1px solid var(--line);
+    }
+
+    .q-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 600px) {
+      .q-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .qcard {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 34px 30px;
+      box-shadow: 0 10px 30px rgba(13, 37, 49, 0.03);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 184px;
+      transition: transform 0.4s var(--transition), box-shadow 0.4s;
+    }
+
+    .qcard-note-lines {
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 78%;
+    }
+
+    .qcard:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 35px rgba(13, 37, 49, 0.06);
+    }
+
+    .qcard .tag {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      color: var(--teal);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .qcard h3 {
+      font-size: clamp(18px, 2.5vw, 22px);
+      line-height: 1.35;
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    .kr .qcard h3 {
+      line-height: 1.45;
+    }
+
+    .qcard.dark {
+      background: linear-gradient(150deg, var(--navy), var(--teal-deep));
+      border: none;
+    }
+
+    .qcard.dark .tag {
+      color: #83c7ba;
+    }
+
+    .qcard.dark h3 {
+      color: #fff;
+    }
+
+    .qcard h3.principle {
+      font-size: clamp(16px, 2.2vw, 19px);
+      line-height: 1.6;
+      color: var(--teal-deep);
+      font-weight: 600;
+    }
+
+    .kr .qcard h3.principle {
+      line-height: 1.7;
+    }
+
+    /* FAQ SECTION */
+    .faq {
+      background: var(--bg);
+      border-top: 1px solid var(--line);
+    }
+
+    .faq-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 50px;
+    }
+
+    @media (min-width: 900px) {
+      .faq-layout {
+        grid-template-columns: 0.8fr 1.2fr;
+      }
+    }
+
+    .faq-items {
+      display: flex;
+      flex-direction: column;
       gap: 14px;
     }
 
     .faq-item {
-      padding: 28px 30px;
-      border-radius: var(--radius-lg);
-      background: var(--white);
+      background: var(--card);
       border: 1px solid var(--line);
-      box-shadow: 0 12px 34px rgba(10, 30, 80, 0.045);
-    }
-
-    .faq-item h3 {
-      color: var(--navy);
-      font-size: 21px;
-      letter-spacing: -0.04em;
-      margin-bottom: 10px;
-    }
-
-    .faq-item p {
-      color: var(--muted);
-      font-size: 15.5px;
-      line-height: 1.72;
-    }
-
-    .faq-item p + p {
-      margin-top: 12px;
-    }
-
-    .final-cta {
-      padding-bottom: 120px;
-    }
-
-    .cta-panel {
-      position: relative;
+      border-radius: var(--radius-sm);
       overflow: hidden;
-      padding: 62px;
-      border-radius: 34px;
-      background:
-        radial-gradient(circle at top right, rgba(47, 124, 115, 0.16), transparent 28rem),
-        linear-gradient(135deg, #ffffff, #f5faf8);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      text-align: center;
+      box-shadow: 0 4px 15px rgba(13, 37, 49, 0.02);
+      transition: border-color 0.3s;
     }
 
-    .cta-panel::before {
+    .faq-item:hover {
+      border-color: var(--gray-soft);
+    }
+
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 24px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.4;
+    }
+
+    .faq-q .pm {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      position: relative;
+      transition: transform 0.4s var(--transition);
+    }
+
+    .faq-q .pm::before, .faq-q .pm::after {
       content: "";
       position: absolute;
-      width: 340px;
-      height: 340px;
-      border-radius: 50%;
-      background: rgba(47, 124, 115, 0.08);
-      left: -120px;
-      bottom: -170px;
+      background: var(--teal);
+      border-radius: 2px;
+      transition: transform 0.4s var(--transition), opacity 0.3s;
     }
 
-    .cta-panel > * {
-      position: relative;
-      z-index: 1;
+    .faq-q .pm::before {
+      top: 11px;
+      left: 4px;
+      width: 16px;
+      height: 2px;
     }
 
-    .cta-panel h2 {
-      max-width: 780px;
-      margin: 0 auto;
-      color: var(--navy);
-      font-size: clamp(34px, 4.7vw, 58px);
-      line-height: 1.04;
-      letter-spacing: -0.06em;
+    .faq-q .pm::after {
+      top: 4px;
+      left: 11px;
+      width: 2px;
+      height: 16px;
     }
 
-    .cta-panel p {
-      max-width: 680px;
-      margin: 22px auto 0;
-      color: var(--muted);
-      font-size: 17px;
+    .faq-item.open {
+      border-color: var(--teal);
+    }
+
+    .faq-item.open .pm {
+      transform: rotate(135deg);
+    }
+
+    .faq-item.open .pm::after {
+      opacity: 0;
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s var(--transition);
+    }
+
+    .faq-a .inner {
+      padding: 0 30px 24px;
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: var(--gray);
+    }
+
+    .kr .faq-a .inner {
       line-height: 1.75;
     }
 
-    .cta-panel .button {
-      margin-top: 30px;
+    .faq-a .inner p {
+      margin-bottom: 12px;
     }
 
-    .footer {
+    .faq-a .inner p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* HOW IT WORKS SECTION */
+    .how-it-works {
+      background: var(--bg);
       border-top: 1px solid var(--line);
-      background: white;
     }
 
-    .footer-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 28px 22px;
-      display: flex;
-      justify-content: space-between;
+    .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr;
       gap: 20px;
-      color: var(--muted-2);
+      margin-top: 40px;
+    }
+
+    @media (min-width: 768px) {
+      .steps-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .step-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(13, 37, 49, 0.03);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      transition: transform 0.4s var(--transition), box-shadow 0.4s;
+    }
+
+    .step-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(13, 37, 49, 0.06);
+    }
+
+    .snum {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--tint);
+      color: var(--teal-deep);
+      font-weight: 800;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .step-card:hover .snum {
+      background: var(--teal);
+      color: #fff;
+    }
+
+    .sbody h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .sbody p {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--gray);
+    }
+
+    .kr .sbody p {
+      line-height: 1.7;
+    }
+
+    /* CTA SECTION - Big Banner */
+    .cta-sec {
+      background: var(--bg);
+      padding: 80px 0 120px;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, #eef5f3, #ffffff);
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      padding: 60px 40px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(13, 37, 49, 0.04);
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box .badge {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-box h2 {
+      font-size: clamp(28px, 4.5vw, 48px);
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+
+    .cta-box p {
+      font-size: clamp(15px, 2vw, 18px);
+      line-height: 1.6;
+      color: var(--gray);
+      max-width: 600px;
+      margin: 0 auto 16px;
+    }
+
+    .cta-box .fine {
       font-size: 13px;
+      color: var(--gray-soft);
+      font-style: italic;
+      margin-bottom: 30px;
+    }
+
+    .cta-box .promise {
+      font-size: 13px;
+      color: var(--teal-deep);
+      font-weight: 700;
+      line-height: 1.7;
+      margin-top: 24px;
+      letter-spacing: 0.02em;
+      opacity: 0.85;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--card);
+      padding: 40px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--gray-soft);
       font-weight: 600;
     }
 
+    @media (min-width: 600px) {
+      .footer-layout {
+        flex-direction: row;
+      }
+    }
+
+    .footer-right {
+      display: flex;
+      gap: 16px;
+    }
+
+    /* Scroll reveal reveal-on-scroll */
     .reveal {
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 700ms ease, transform 700ms ease;
+      transform: translateY(24px);
+      transition: opacity 0.8s var(--transition), transform 0.8s var(--transition);
     }
 
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
     }
-
-    @media (max-width: 920px) {
-      .nav-links a:not(.nav-cta) {
-        display: none;
-      }
-
-      .hero,
-      .section-header,
-      .why-grid,
-      .gap-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-top: 62px;
-        gap: 38px;
-      }
-
-      .hero-visual {
-        min-height: 520px;
-      }
-
-      .orb {
-        right: 50%;
-        transform: translateX(50%);
-      }
-
-      .cards-3 {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .section {
-        padding: 76px 20px;
-      }
-
-      .nav-inner {
-        padding: 14px 18px;
-      }
-
-      .brand {
-        font-size: 18px;
-      }
-
-      .nav-cta {
-        padding: 9px 12px;
-        font-size: 13px;
-      }
-
-      h1 {
-        font-size: 48px;
-        letter-spacing: -0.065em;
-      }
-
-      html[lang="ko"] h1 {
-        font-size: 38px;
-        line-height: 1.16;
-        max-width: 100%;
-      }
-
-      html[lang="ko"] .section-title {
-        font-size: 36px;
-        line-height: 1.18;
-      }
-
-      html[lang="ko"] .cta-panel h2 {
-        font-size: 34px;
-        line-height: 1.18;
-      }
-
-      .hero-copy {
-        font-size: 17px;
-      }
-
-      .hero-actions {
-        align-items: stretch;
-      }
-
-      .button {
-        width: 100%;
-      }
-
-      .hero-visual {
-        min-height: 470px;
-      }
-
-      .orb {
-        width: 270px;
-        height: 270px;
-        top: 56px;
-      }
-
-      .floating-card {
-        padding: 18px;
-      }
-
-      .card-one {
-        width: 235px;
-        left: 0;
-        top: 20px;
-      }
-
-      .card-two {
-        width: 250px;
-        right: 0;
-        bottom: 78px;
-      }
-
-      .card-three {
-        width: 230px;
-        left: 10px;
-        bottom: 0;
-      }
-
-      .why-main,
-      .missing-card,
-      .info-card,
-      .preview-card,
-      .faq-item {
-        padding: 24px;
-      }
-
-      .preview-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .gap-inner {
-        padding: 82px 20px;
-      }
-
-      .quote-panel p {
-        font-size: 19px;
-      }
-
-      .cta-panel {
-        padding: 42px 24px;
-        border-radius: 28px;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-      }
-    }
   </style>
 </head>
 <body>
-  <div class="page-shell">
-    <header class="nav">
-      <div class="nav-inner">
-        <a class="brand" href="#top" aria-label="Leeora home">
-          <span class="brand-mark" aria-hidden="true"></span>
-          <span>Leeora</span>
-        </a>
-        <nav class="nav-links" aria-label="Main navigation">
-          <a href="#why">Why</a>
-          <a href="#for">Who it’s for</a>
-          <a href="#community">Community</a>
-          <a href="https://tally.so/r/jakor1" target="_blank" rel="noopener" class="nav-cta">Share Your Perspective</a>
-          <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch language">KR</button>
-        </nav>
+
+  <!-- HEADER -->
+  <header id="header">
+    <div class="container header-nav">
+      <a href="#" class="brand">
+        <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#2c7a6e" />
+              <stop offset="100%" stop-color="#12303f" />
+            </linearGradient>
+            <linearGradient id="logoGradDark" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#83c7ba" />
+              <stop offset="100%" stop-color="#ffffff" />
+            </linearGradient>
+          </defs>
+          <circle cx="50" cy="50" r="46" stroke="url(#logoGrad)" stroke-width="6" fill="none" />
+          <ellipse cx="50" cy="50" rx="18" ry="46" stroke="url(#logoGrad)" stroke-width="5" fill="none" transform="rotate(0 50 50)" />
+          <ellipse cx="50" cy="50" rx="18" ry="46" stroke="url(#logoGrad)" stroke-width="5" fill="none" transform="rotate(60 50 50)" />
+          <ellipse cx="50" cy="50" rx="18" ry="46" stroke="url(#logoGrad)" stroke-width="5" fill="none" transform="rotate(120 50 50)" />
+        </svg>
+        <span>Leeora</span>
+      </a>
+      
+      <nav class="nav-links">
+        <a href="#why" data-en="Why Us" data-kr="존재 이유">Why Us</a>
+        <a href="#who" data-en="Who It's For" data-kr="대상">Who It's For</a>
+        <a href="#questions" data-en="Questions" data-kr="질문들">Questions</a>
+        <a href="#faq" data-en="FAQ" data-kr="자주 묻는 질문">FAQ</a>
+        <a href="#how" data-en="How It Works" data-kr="참여 흐름">How It Works</a>
+      </nav>
+
+      <div class="header-right">
+        <div class="lang-switch">
+          <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+          <button id="btn-kr" onclick="setLang('kr')">KR</button>
+        </div>
+        <a href="https://tally.so/r/jakor1" target="_blank" rel="noopener" class="header-cta-btn" data-en="Share Your Perspective" data-kr="나의 관점 공유하기">Share Your Perspective</a>
       </div>
-    </header>
+    </div>
+  </header>
 
-
-    <main id="top">
-      <section class="section hero">
-        <div class="hero-content reveal">
-          <div class="badge"><span class="badge-dot"></span>For people navigating career questions with more than simple answers</div>
-          <h1>Your experience deserves more thoughtful career conversations.</h1>
-          <p class="hero-copy">Leeora is a calmer space for people trying to make sense of identity, transition, and what comes next.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="https://tally.so/r/jakor1" target="_blank" rel="noopener">Share Your Perspective</a>
-            <a class="button button-secondary" href="#why">Explore Leeora</a>
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <span class="badge reveal" style="transition-delay: 0.1s;">
+            <span class="led"></span>
+            <span data-en="For UK students & graduates navigating life and what comes next" data-kr="영국 유학생과 졸업생이|삶과 다음 여정을 탐색하는 곳">For UK students & graduates navigating life and what comes next</span>
+          </span>
+          <h1 class="reveal" style="transition-delay: 0.2s;" data-en="Your UK experience — and ours — deserves a deeper conversation." data-kr="당신과 우리의 영국 경험에는|더 깊은 대화가 필요합니다.">Your UK experience — and ours — deserves a deeper conversation.</h1>
+          <p class="lead reveal" style="transition-delay: 0.3s;" data-en="The time you spent building a life away from home, and the questions left beneath it. A safe space for those who want to shape their next journey at their own pace." data-kr="집을 떠나 삶을 만들어온 시간,|그리고 그 아래 남아 있는 질문들.|자신의 속도로 다음 여정을 만들어가고 싶은|사람들을 위한 안전한 공간입니다.">The time you spent building a life away from home, and the questions left beneath it. A safe space for those who want to shape their next journey at their own pace.</p>
+          <div class="hero-actions reveal" style="transition-delay: 0.4s;">
+            <a href="https://tally.so/r/jakor1" target="_blank" rel="noopener" class="cta" data-en="Share Your Perspective" data-kr="나의 관점 공유하기">Share Your Perspective</a>
+            <a href="#why" class="explore">
+              <span data-en="Explore" data-kr="둘러보기">Explore</span>
+              <span>↓</span>
+            </a>
           </div>
-          <p class="small-note">Community first. Honest perspective before polished answers.</p>
         </div>
 
-        <div class="hero-visual reveal" aria-hidden="true">
-          <div class="orb"></div>
-          <div class="floating-card card-one">
-            <strong>Questions before answers</strong>
-            <p>What kind of future actually fits the life I want to build?</p>
-          </div>
-          <div class="floating-card card-two">
-            <strong>Shared perspective</strong>
-            <p>Conversations from people navigating ambition, uncertainty, and transition.</p>
-          </div>
-          <div class="floating-card card-three">
-            <strong>Community first</strong>
-            <p>A calmer space to think before turning pressure into decisions.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="gap-section" id="tension">
-        <div class="gap-inner reveal">
-          <div>
-            <div class="badge"><span class="badge-dot"></span>The gap we see</div>
-            <h2 class="section-title">Sometimes the hardest part is not a lack of information. It is figuring out what actually fits your life.</h2>
-            <p class="section-copy" style="margin-top: 24px;">Many people are not simply choosing jobs.</p>
-            <p class="section-copy" style="margin-top: 14px;">They are navigating expectations, identity, geography, ambition, and future choices at the same time.</p>
-          </div>
-          <div class="quote-panel">
-            <p>“It is not always about having more information. Sometimes, it is about finding a space where your questions finally make sense.”</p>
-            <span>Leeora community principle</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="why">
-        <div class="section-header reveal">
-          <div>
-            <div class="badge"><span class="badge-dot"></span>Why Leeora exists</div>
-            <h2 class="section-title">Most career spaces focus on answers. Leeora begins with the questions behind them.</h2>
-          </div>
-          <p class="section-copy">Career information is everywhere. What is often missing is a space to reflect on what those options actually mean for your own situation.</p>
-        </div>
-
-        <div class="why-grid reveal">
-          <div class="panel why-main">
-            <p class="section-copy">Most career platforms focus on outcomes, titles, and final decisions.</p>
-            <p class="section-copy">Leeora focuses on the context behind those decisions — how people think through choices, compare possibilities, and navigate transitions that are often difficult to explain clearly.</p>
-          </div>
-          <div class="panel missing-card">
-            <h3>What Leeora makes room for</h3>
-            <ul class="check-list">
-              <li>The context behind career choices</li>
-              <li>Lived perspectives, not just polished outcomes</li>
-              <li>Space for questions before clear answers</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="for">
-        <div class="section-header reveal">
-          <div>
-            <div class="badge"><span class="badge-dot"></span>Who this is for</div>
-            <h2 class="section-title">For people still figuring out what comes next.</h2>
-          </div>
-          <p class="section-copy">Leeora is designed for people who carry meaningful experiences, open questions, and a desire for more thoughtful career direction.</p>
-        </div>
-
-        <div class="cards-3 reveal">
-          <article class="info-card">
-            <span class="number">01</span>
-            <h3>Experiences that are hard to explain</h3>
-            <p>Some parts of your background may not fit neatly into simple career language.</p>
-          </article>
-          <article class="info-card">
-            <span class="number">02</span>
-            <h3>Still figuring out what path feels right</h3>
-            <p>For people thinking through choices, locations, ambition, and what kind of life feels meaningful.</p>
-          </article>
-          <article class="info-card">
-            <span class="number">03</span>
-            <h3>Thoughtful perspective, not pressure</h3>
-            <p>A space for honest conversations and shared experiences without needing polished answers first.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="community">
-        <div class="section-header reveal">
-          <div>
-            <div class="badge"><span class="badge-dot"></span>Community Preview</div>
-            <h2 class="section-title">Inside the early Leeora community</h2>
-          </div>
-          <p class="section-copy">A thoughtful space where unfinished thoughts, honest questions, and lived perspective can be shared more openly.</p>
-        </div>
-
-        <div class="preview-grid reveal">
-          <article class="preview-card">
-            <div>
-              <div class="preview-label">Today’s question</div>
-              <h3>How do you decide between staying global and returning home?</h3>
+        <div class="hero-visual reveal" style="transition-delay: 0.3s;">
+          <div class="mockup-stack">
+            <div class="mockup-card card-bottom"></div>
+            <div class="mockup-card card-middle"></div>
+            <div class="mockup-card card-top">
+              <div>
+                <div class="mockup-tag" data-en="Today's question" data-kr="오늘의 질문">Today's question</div>
+                <div class="mockup-q" data-en="The time I spent away — what has it become to who I am now?" data-kr="내가 떠나온 시간은, 지금의 나에게 무엇이 됐을까?">The time I spent away — what has it become to who I am now?</div>
+                <div class="mockup-note-lines" aria-hidden="true">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+              <div class="mockup-footer">
+                <div class="mockup-author">
+                  <div class="mockup-avatar">
+                    <svg class="logo-icon" style="width: 18px; height: 18px; display: block;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="50" cy="50" r="46" stroke="url(#logoGrad)" stroke-width="8" fill="none" />
+                      <ellipse cx="50" cy="50" rx="18" ry="46" stroke="url(#logoGrad)" stroke-width="7" fill="none" transform="rotate(0 50 50)" />
+                      <ellipse cx="50" cy="50" rx="18" ry="46" stroke="url(#logoGrad)" stroke-width="7" fill="none" transform="rotate(60 50 50)" />
+                      <ellipse cx="50" cy="50" rx="18" ry="46" stroke="url(#logoGrad)" stroke-width="7" fill="none" transform="rotate(120 50 50)" />
+                    </svg>
+                  </div>
+                  <div class="mockup-meta">Leeora Circle</div>
+                </div>
+                <div class="mockup-meta" data-en="Early Access" data-kr="초기 입장">Early Access</div>
+              </div>
             </div>
-            <p>A conversation about choices, belonging, opportunity, and what people value long-term.</p>
-          </article>
-
-          <article class="preview-card featured">
-            <div>
-              <div class="preview-label">Slow conversation</div>
-              <h3>How do you carry ambition without turning your whole life into optimization?</h3>
-            </div>
-            <p>For people who care about the future without wanting life to become only work.</p>
-          </article>
-
-          <article class="preview-card">
-            <div>
-              <div class="preview-label">Shared perspective</div>
-              <h3>Some experiences only begin to make sense when someone else names them too.</h3>
-            </div>
-            <p>Sometimes the right conversation helps you understand what you have been carrying.</p>
-          </article>
-
-          <article class="preview-card">
-            <div>
-              <div class="preview-label">Community insight</div>
-              <h3>Many people carry the same questions much longer than they admit.</h3>
-            </div>
-            <p>Shared uncertainty can become the beginning of meaningful direction.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="faq">
-        <div class="section-header reveal">
-          <div>
-            <div class="badge"><span class="badge-dot"></span>FAQ</div>
-            <h2 class="section-title">A calmer way to start career conversations</h2>
           </div>
-          <p class="section-copy">Leeora is built to reduce pressure, not add more of it.</p>
         </div>
-
-        <div class="faq-list reveal">
-          <article class="faq-item">
-            <h3>What kind of conversations happen inside Leeora?</h3>
-            <p>People talk about direction, uncertainty, transitions, identity, ambition, and questions that are often difficult to discuss openly elsewhere.</p>
-          </article>
-
-          <article class="faq-item">
-            <h3>Do I need to have everything figured out already?</h3>
-            <p>Not at all. Many people join while they are still thinking through uncertainty, possibilities, and what feels meaningful next.</p>
-          </article>
-
-          <article class="faq-item">
-            <h3>What if I need more structured career support later?</h3>
-            <p>Leeora is community-first.</p>
-            <p>For some members, there may come a time when open conversations are no longer enough — when they want to clarify their direction, understand how their experiences translate into the real career market, or think through their next steps with more structure.</p>
-            <p>When that moment comes, Leeora may share optional pathways to trusted career professionals and carefully considered guidance.</p>
-            <p>Only if it feels relevant.<br>Always at your own pace.<br>Never as a requirement for being part of the community.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section final-cta" id="join">
-        <div class="cta-panel reveal">
-          <div class="badge"><span class="badge-dot"></span>Early community</div>
-          <h2>We’re looking for the first people who want to help shape Leeora.</h2>
-          <p>Tell us a little about your experience, questions, or thoughts that still feel difficult to fully explain.</p>
-          <p>Selected early members will be invited to join the first Leeora Slack community.</p>
-          <a class="button button-primary" href="https://tally.so/r/jakor1" target="_blank" rel="noopener">Share Your Perspective</a>
-        </div>
-      </section>
-    </main>
-
-
-    <footer class="footer">
-      <div class="footer-inner">
-        <span>© 2026 Leeora</span>
-        <span>Community first. Perspective before pressure.</span>
       </div>
-    </footer>
-  </div>
+    </section>
+
+    <!-- WHY SECTION -->
+    <section class="why" id="why">
+      <div class="container why-content reveal">
+        <span class="badge on-dark">
+          <span class="led"></span>
+          <span data-en="Why Leeora exists" data-kr="Leeora가 시작된 이유">Why Leeora exists</span>
+        </span>
+        <h2 data-en="There is no single right answer. So instead of handing you one, we look at the questions behind it." data-kr="정해진 정답은 없기에, 우리는 섣부른 답을 건네기보다 그 이면의 질문을 함께 바라봅니다.">There is no single right answer. So instead of handing you one, we look at the questions behind it.</h2>
+        <p data-en="The hardest part often isn't missing information — it's figuring out how to weave your journey abroad into a life that truly fits you." data-kr="가장 어려운 건 정보가 부족해서가 아닙니다.|해외에서 걸어온 여정을|나에게 진짜 맞는 삶 속으로|어떻게 엮어갈지 알아가는 일입니다.">The hardest part often isn't missing information — it's figuring out how to weave your journey abroad into a life that truly fits you.</p>
+        <div class="quote">
+          <span data-en="“Do you need more information — or a better question?”" data-kr="“우리에게 지금 필요한 것은 더 많은 정보일까요, 아니면 더 본질적인 질문일까요?”">“Do you need more information — or a better question?”</span>
+          <span class="src" data-en="Leeora community principle" data-kr="Leeora의 커뮤니티 철학">Leeora community principle</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO SECTION -->
+    <section class="who" id="who">
+      <div class="container reveal">
+        <div class="section-head">
+          <span class="badge">
+            <span class="led"></span>
+            <span data-en="Who this is for" data-kr="이런 고민을 하시는 분들을 위해">Who this is for</span>
+          </span>
+          <h2 class="sec-h" data-en="For people still figuring out what comes next." data-kr="아직 다음 페이지를 그려나가는 중인 분들을 위해.">For people still figuring out what comes next.</h2>
+          <p class="sec-sub" data-en="A few examples — and plenty that aren't listed here." data-kr="이런 고민의 순간들을 지나고 계시다면 — 비록 아래의 예시에 완벽히 맞지 않더라도 괜찮습니다.">A few examples — and plenty that aren't listed here.</p>
+        </div>
+
+        <div class="card-grid">
+          <div class="card">
+            <span class="num">01</span>
+            <h3 data-en="Experiences hard to explain" data-kr="한 줄로 설명하기 어려운 경험들">Experiences hard to explain</h3>
+            <p data-en="Parts of your background don't fit neat career language." data-kr="내가 지나온 시간과 배경의 어떤 조각들은, 이력서의 뻔한 커리어 언어에 쉽게 담기지 않습니다.">Parts of your background don't fit neat career language.</p>
+          </div>
+          <div class="card">
+            <span class="num">02</span>
+            <h3 data-en="Still finding what fits" data-kr="진짜 나에게 어울리는 것을 찾는 여정">Still finding what fits</h3>
+            <p data-en="Thinking through choices, where to anchor yourself, and the kind of life that feels right." data-kr="어떤 선택을 할지,|어디에 나를 뿌리내릴지,|그리고 어떤 삶이 나에게 맞는지|함께 생각해봅니다.">Thinking through choices, where to anchor yourself, and the kind of life that feels right.</p>
+          </div>
+          <div class="card">
+            <span class="num">03</span>
+            <h3 data-en="Perspective, not pressure" data-kr="평가가 아닌 따뜻한 관점">Perspective, not pressure</h3>
+            <p data-en="Honest conversation without needing polished answers first." data-kr="그럴듯하게 정제된 정답을 서둘러 내놓지 않아도 되는, 안전하고 솔직한 대화가 필요합니다.">Honest conversation without needing polished answers first.</p>
+          </div>
+        </div>
+
+        <div class="bridge-box">
+          <p class="bridge" data-en="Whether you saw yourself here or not — that's the perspective we're looking for. ↓" data-kr="이 카드 속에서 자신의 모습을 발견했든 그렇지 않든 — 당신이 품고 있는 그 고유한 관점이 바로 우리가 찾는 이야기입니다. ↓" onclick="document.getElementById('cta-sec').scrollIntoView({behavior: 'smooth'})">Whether you saw yourself here or not — that's the perspective we're looking for. ↓</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSIDE SECTION -->
+    <section class="inside" id="questions">
+      <div class="container reveal">
+        <div class="section-head">
+          <span class="badge">
+            <span class="led"></span>
+            <span data-en="Questions shared inside Leeora" data-kr="Leeora 안에서 싹트는 질문들">Questions shared inside Leeora</span>
+          </span>
+          <h2 class="sec-h" data-en="A community that starts with questions." data-kr="오직 질문에서 출발하는 커뮤니티.">A community that starts with questions.</h2>
+        </div>
+
+        <div class="q-grid">
+          <div class="qcard">
+            <div>
+              <div class="tag" data-en="Today's question" data-kr="오늘의 질문">Today's question</div>
+              <h3 data-en="The time I spent away — what has it become to who I am now?" data-kr="떠나왔던 그 수많은 시간은, 지금의 나에게 어떤 의미로 남았을까?">The time I spent away — what has it become to who I am now?</h3>
+              <div class="qcard-note-lines" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+          </div>
+          <div class="qcard dark">
+            <div>
+              <div class="tag" data-en="Slow conversation" data-kr="느린 대화">Slow conversation</div>
+              <h3 data-en="How do you protect your own pace when the world expects you to constantly prove your worth?" data-kr="세상이 끊임없이|나의 가치를 증명하라고 요구할 때,|나는 어떻게 나만의 속도를 지킬 수 있을까?">How do you protect your own pace when the world expects you to constantly prove your worth?</h3>
+            </div>
+          </div>
+          <div class="qcard">
+            <div>
+              <div class="tag" data-en="A name shared together" data-kr="함께 붙이는 이름">A name shared together</div>
+              <h3 data-en="Some experiences only begin to make sense when someone names them with you." data-kr="어떤 막연한 경험들은 누군가 곁에서 함께 이름을 붙여줄 때, 비로소 선명하게 이해되기 시작합니다.">Some experiences only begin to make sense when someone names them with you.</h3>
+            </div>
+          </div>
+          <div class="qcard">
+            <div>
+              <div class="tag" data-en="Community principle" data-kr="커뮤니티 원칙">Community principle</div>
+              <h3 class="principle" data-en="Only advice that's asked for. No comparison. Nothing shared outside without consent." data-kr="먼저 요청한 조언만을 나누기. 타인과의 비교를 내려놓기. 동의 없는 이야기를 절대 밖에 발설하지 않기.">Only advice that's asked for. No comparison. Nothing shared outside without consent.</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq" id="faq">
+      <div class="container reveal">
+        <div class="faq-layout">
+          <div>
+            <span class="badge">
+              <span class="led"></span>
+              FAQ
+            </span>
+            <h2 class="sec-h" data-en="A calmer way to start career conversations" data-kr="내 일에 대한 대화를, 한층 더 차분하고 깊이 있게">A calmer way to start career conversations</h2>
+            <p class="sec-sub" data-en="Leeora is built to reduce pressure, not add more of it." data-kr="Leeora는 불안과 압박을 더하는 공간이 아닙니다. 오히려 그것을 온전히 내려놓을 수 있도록 돕기 위해 태어났습니다.">Leeora is built to reduce pressure, not add more of it.</p>
+          </div>
+
+          <div class="faq-items">
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">
+                <span data-en="What kind of conversations happen inside Leeora?" data-kr="Leeora 안에서는 주로 어떤 이야기들이 오가나요?">What kind of conversations happen inside Leeora?</span>
+                <span class="pm"></span>
+              </button>
+              <div class="faq-a">
+                <div class="inner">
+                  <p data-en="People talk about direction, uncertainty, transitions, identity, ambition, and questions that are often hard to discuss openly elsewhere." data-kr="삶의 방향성, 어쩔 수 없는 불확실함, 내 인생의 크고 작은 전환점과 정체성, 그리고 가슴 깊이 품은 야망까지 — 다른 곳에서는 쉽게 꺼내기 힘든 본질적인 질문들을 함께 나눕니다.">People talk about direction, uncertainty, transitions, identity, ambition, and questions that are often hard to discuss openly elsewhere.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">
+                <span data-en="Do I need to have everything figured out already?" data-kr="이미 커리어 로드맵을 선명히 그려둔 사람만 참여할 수 있나요?">Do I need to have everything figured out already?</span>
+                <span class="pm"></span>
+              </button>
+              <div class="faq-a">
+                <div class="inner">
+                  <p data-en="No, not at all. Leeora is actually designed for the exact opposite. Whether you’re conflicted between staying in the UK or returning home, or just trying to figure out who you are outside of your resume—this is a place to slow down and think out loud." data-kr="아니요, 전혀 그렇지 않습니다.|Leeora는 오히려 그 반대를 위해 설계된 공간입니다.|영국에 남을지 한국으로 돌아갈지 사이에서 흔들리고 있든,|이력서 밖의 내가 누구인지 알아가고 있든 —|이곳은 잠시 속도를 낮추고 생각을 꺼내어 말해볼 수 있는 곳입니다.">No, not at all. Leeora is actually designed for the exact opposite. Whether you’re conflicted between staying in the UK or returning home, or just trying to figure out who you are outside of your resume—this is a place to slow down and think out loud.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)">
+                <span data-en="What if I need more structured career support later?" data-kr="나중에 더 구체적이고 실질적인 커리어 상담이나 지원을 받고 싶어지면 어떻게 하나요?">What if I need more structured career support later?</span>
+                <span class="pm"></span>
+              </button>
+              <div class="faq-a">
+                <div class="inner">
+                  <p data-en="Leeora is community-first. For some members, there may come a time when open conversation isn't enough — when they want to understand how their experience translates into the real market." data-kr="Leeora는 언제나 커뮤니티가 최우선입니다. 하지만 열린 대화를 나누다 보면, 내 유학 경험이 한국 채용 시장에서 실제로 어떻게 평가받는지 명확히 알고 싶어지는 순간이 찾아오곤 합니다.">Leeora is community-first. For some members, there may come a time when open conversation isn't enough — when they want to understand how their experience translates into the real market.</p>
+                  <p data-en="When that moment comes, Leeora may share optional pathways to trusted career professionals. Only if it feels relevant. Always at your own pace. Never as a requirement." data-kr="그때가 되면, 본인의 페이스와 필요에 따라 신뢰할 수 있는 전문가 네트워크로 이어지는 연결 통로를 조심스럽게 제안받으실 수 있습니다. 이는 전적으로 선택 사항이며, 커뮤니티 활동의 전제 조건이 결코 아닙니다.">When that moment comes, Leeora may share optional pathways to trusted career professionals. Only if it feels relevant. Always at your own pace. Never as a requirement.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS SECTION -->
+    <section class="how-it-works" id="how">
+      <div class="container reveal">
+        <div class="section-head">
+          <span class="badge">
+            <span class="led"></span>
+            <span data-en="How it works" data-kr="여정의 흐름">How it works</span>
+          </span>
+          <h2 class="sec-h" data-en="Start small, and ease into the conversation." data-kr="아주 작은 발걸음으로 시작해, 서두르지 않고 서서히 스며듭니다.">Start small, and ease into the conversation.</h2>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="snum">1</span>
+            <div class="sbody">
+              <h3 data-en="Share your quiet question" data-kr="조용한 질문을 나누기">Share your quiet question</h3>
+              <p data-en="A short note on where you are right now. Not an application, not an evaluation." data-kr="내가 지금 어떤 지점에 서 있는지 가볍게 한 줄의 기록을 남겨주세요. 이는 스펙 평가를 위한 지원서가 아닙니다.">A short note on where you are right now. Not an application, not an evaluation.</p>
+            </div>
+          </div>
+          <div class="step-card">
+            <span class="snum">2</span>
+            <div class="sbody">
+              <h3 data-en="Meet your UK peers" data-kr="영국 경험을 가진 동료 만나기">Meet your UK peers</h3>
+              <p data-en="Selected members step into a trusted community space." data-kr="상호 신뢰를 바탕으로 가꾸어진 안전한 커뮤니티 공간으로 들어섭니다.">Selected members step into a trusted community space.</p>
+            </div>
+          </div>
+          <div class="step-card">
+            <span class="snum">3</span>
+            <div class="sbody">
+              <h3 data-en="Think out loud" data-kr="생각을 꺼내어 말하기">Think out loud</h3>
+              <p data-en="You leave the question you're standing in front of, as an Ora." data-kr="현재 내가 가슴 깊이 마주하고 있는 핵심 질문을 한 장의 생각(Ora)으로 남깁니다.">You leave the question you're standing in front of, as an Ora.</p>
+            </div>
+          </div>
+          <div class="step-card">
+            <span class="snum">4</span>
+            <div class="sbody">
+              <h3 data-en="Receive questions and reflection" data-kr="질문과 따뜻한 비춤 받기">Receive questions and reflection</h3>
+              <p data-en="Not judgment or advice — people reflect you back through questions and perspective." data-kr="섣부른 평가나 조언을 건네는 대신, 깊이 있는 질문과 다양한 관점을 통해 서로의 모습을 비춰줍니다.">Not judgment or advice — people reflect you back through questions and perspective.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-sec" id="cta-sec">
+      <div class="container reveal">
+        <div class="cta-box">
+          <span class="badge">
+            <span class="led"></span>
+            <span data-en="Early community" data-kr="초기 커뮤니티">Early community</span>
+          </span>
+          <h2 data-en="Help shape the first Leeora community." data-kr="Leeora의 첫 걸음을 함께 가꿀 동료를 기다립니다.">Help shape the first Leeora community.</h2>
+          <p data-en="Tell us about an experience or question that's still hard to put into words." data-kr="머릿속에서 맴돌 뿐 아직 온전한 언어로 풀리지 않은 경험이나 질문을 들려주세요.">Tell us about an experience or question that's still hard to put into words.</p>
+          <p class="fine" data-en="Selected early members are invited into the first Leeora Circle community." data-kr="초기에 합류해주신 소중한 분들은 첫 번째 Leeora Circle에 정중히 초대해 드립니다.">Selected early members are invited into the first Leeora Circle community.</p>
+          
+          <button class="cta" onclick="window.open('https://tally.so/r/jakor1', '_blank')" data-en="Share Your Perspective" data-kr="나의 생각 나누러 가기">Share Your Perspective</button>
+          
+          <p class="promise" data-en="Let’s shape our stories, together. No pressure, just perspective." data-kr="우리의 이야기를 함께 만들어가요.|압박 없이, 관점으로.">Let’s shape our stories, together. No pressure, just perspective.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-layout">
+      <a href="#" class="brand" style="font-size: 18px;">
+        <svg class="logo-icon" style="width: 22px; height: 22px;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="46" stroke="url(#logoGrad)" stroke-width="6" fill="none" />
+          <ellipse cx="50" cy="50" rx="18" ry="46" stroke="url(#logoGrad)" stroke-width="5" fill="none" transform="rotate(0 50 50)" />
+          <ellipse cx="50" cy="50" rx="18" ry="46" stroke="url(#logoGrad)" stroke-width="5" fill="none" transform="rotate(60 50 50)" />
+          <ellipse cx="50" cy="50" rx="18" ry="46" stroke="url(#logoGrad)" stroke-width="5" fill="none" transform="rotate(120 50 50)" />
+        </svg>
+        <span>Leeora</span>
+      </a>
+      <div class="footer-right">
+        <span data-en="Let’s shape our stories, together. No pressure, just perspective." data-kr="우리의 이야기를 함께 만들어가요. 압박 없이, 관점으로.">Let’s shape our stories, together. No pressure, just perspective.</span>
+      </div>
+    </div>
+  </footer>
 
   <script>
-    const translations = {
-      "Why": "이유",
-      "Who it’s for": "대상",
-      "Community": "커뮤니티",
-      "Share Your Perspective": "관점 공유하기",
-      "Explore Leeora": "Leeora 둘러보기",
-      "For people navigating career questions with more than simple answers": "단순한 답보다 더 깊은 커리어 질문을 가진 사람들을 위해",
-      "Your experience deserves more thoughtful career conversations.": "당신의 경험은 더 깊은 커리어 대화로 이어질 가치가 있습니다.",
-      "Leeora is a calmer space for people trying to make sense of identity, transition, and what comes next.": "Leeora는 정체성, 전환, 그리고 다음 단계를 차분히 이해해가려는 사람들을 위한 공간입니다.",
-      "Community first. Honest perspective before polished answers.": "커뮤니티가 먼저입니다. 완성된 답보다 솔직한 관점을 먼저 나눕니다.",
-      "Questions before answers": "답보다 먼저 오는 질문",
-      "What kind of future actually fits the life I want to build?": "내가 만들고 싶은 삶에 실제로 맞는 미래는 어떤 모습일까?",
-      "Shared perspective": "함께 나누는 관점",
-      "Conversations from people navigating ambition, uncertainty, and transition.": "야망, 불확실성, 전환을 함께 지나가는 사람들의 대화.",
-      "Community first": "커뮤니티가 먼저",
-      "A calmer space to think before turning pressure into decisions.": "압박을 결정으로 바꾸기 전에 차분히 생각할 수 있는 공간.",
-      "The gap we see": "우리가 보는 간극",
-      "Sometimes the hardest part is not a lack of information. It is figuring out what actually fits your life.": "때로 가장 어려운 것은 정보 부족이 아닙니다. 내 삶에 실제로 맞는 것을 알아가는 일입니다.",
-      "Many people are not simply choosing jobs.": "많은 사람들은 단순히 직업을 고르는 중이 아닙니다.",
-      "They are navigating expectations, identity, geography, ambition, and future choices at the same time.": "그들은 기대, 정체성, 지역, 야망, 그리고 미래의 선택을 동시에 고민하고 있습니다.",
-      "“It is not always about having more information. Sometimes, it is about finding a space where your questions finally make sense.”": "“항상 더 많은 정보가 필요한 것은 아닙니다. 때로는 내 질문이 비로소 이해되는 공간이 필요합니다.”",
-      "Leeora community principle": "Leeora 커뮤니티 원칙",
-      "Why Leeora exists": "Leeora가 존재하는 이유",
-      "Most career spaces focus on answers. Leeora begins with the questions behind them.": "대부분의 커리어 공간은 답에 집중합니다. Leeora는 그 답 뒤에 있는 질문에서 시작합니다.",
-      "Career information is everywhere. What is often missing is a space to reflect on what those options actually mean for your own situation.": "커리어 정보는 어디에나 있습니다. 하지만 그 선택지들이 내 상황에서 실제로 어떤 의미를 갖는지 생각해볼 공간은 자주 부족합니다.",
-      "Most career platforms focus on outcomes, titles, and final decisions.": "대부분의 커리어 플랫폼은 결과, 직함, 최종 선택에 집중합니다.",
-      "Leeora focuses on the context behind those decisions — how people think through choices, compare possibilities, and navigate transitions that are often difficult to explain clearly.": "Leeora는 그 결정 뒤에 있는 맥락에 집중합니다. 사람들이 선택을 어떻게 고민하고, 가능성을 어떻게 비교하며, 말로 설명하기 어려운 전환을 어떻게 지나가는지 함께 살펴봅니다.",
-      "What Leeora makes room for": "Leeora가 여백을 두는 것들",
-      "The context behind career choices": "커리어 선택 뒤에 있는 맥락",
-      "Lived perspectives, not just polished outcomes": "완성된 결과보다 실제로 살아낸 관점",
-      "Space for questions before clear answers": "명확한 답보다 먼저 질문이 머물 수 있는 공간",
-      "Who this is for": "누구를 위한 공간인가",
-      "For people still figuring out what comes next.": "아직 다음 단계를 알아가고 있는 사람들을 위해.",
-      "Leeora is designed for people who carry meaningful experiences, open questions, and a desire for more thoughtful career direction.": "Leeora는 의미 있는 경험, 아직 열린 질문, 그리고 더 깊이 있는 커리어 방향을 찾고 싶은 마음을 가진 사람들을 위해 만들어졌습니다.",
-      "Experiences that are hard to explain": "간단히 설명하기 어려운 경험",
-      "Some parts of your background may not fit neatly into simple career language.": "당신의 배경 중 어떤 부분은 단순한 커리어 언어로 쉽게 정리되지 않을 수 있습니다.",
-      "Still figuring out what path feels right": "어떤 길이 맞는지 아직 알아가는 중",
-      "For people thinking through choices, locations, ambition, and what kind of life feels meaningful.": "선택, 지역, 야망, 그리고 어떤 삶이 의미 있게 느껴지는지 고민하는 사람들을 위한 공간입니다.",
-      "Thoughtful perspective, not pressure": "압박이 아닌 깊이 있는 관점",
-      "A space for honest conversations and shared experiences without needing polished answers first.": "완성된 답을 먼저 가져오지 않아도 솔직한 대화와 경험을 나눌 수 있는 공간입니다.",
-      "Community Preview": "커뮤니티 미리보기",
-      "Inside the early Leeora community": "초기 Leeora 커뮤니티 안에서",
-      "A thoughtful space where unfinished thoughts, honest questions, and lived perspective can be shared more openly.": "아직 정리되지 않은 생각, 솔직한 질문, 실제로 살아낸 관점을 더 편하게 나눌 수 있는 깊이 있는 공간입니다.",
-      "Today’s question": "오늘의 질문",
-      "How do you decide between staying global and returning home?": "글로벌하게 남을지, 돌아갈지를 어떻게 결정하나요?",
-      "A conversation about choices, belonging, opportunity, and what people value long-term.": "선택, 소속감, 기회, 그리고 장기적으로 무엇을 중요하게 여기는지에 관한 대화입니다.",
-      "Slow conversation": "느린 대화",
-      "How do you carry ambition without turning your whole life into optimization?": "삶 전체를 최적화하지 않으면서 야망을 어떻게 가져갈 수 있을까요?",
-      "For people who care about the future without wanting life to become only work.": "미래를 중요하게 생각하지만 삶이 일만으로 채워지기를 원하지 않는 사람들을 위한 질문입니다.",
-      "Some experiences only begin to make sense when someone else names them too.": "어떤 경험은 다른 사람이 그것을 함께 말해줄 때 비로소 이해되기 시작합니다.",
-      "Sometimes the right conversation helps you understand what you have been carrying.": "때로는 좋은 대화 하나가 내가 무엇을 안고 있었는지 이해하게 해줍니다.",
-      "Community insight": "커뮤니티 인사이트",
-      "Many people carry the same questions much longer than they admit.": "많은 사람들은 생각보다 오래 비슷한 질문을 품고 있습니다.",
-      "Shared uncertainty can become the beginning of meaningful direction.": "함께 나눈 불확실성은 의미 있는 방향의 시작이 될 수 있습니다.",
-      "FAQ": "FAQ",
-      "A calmer way to start career conversations": "커리어 대화를 더 차분하게 시작하는 방식",
-      "Leeora is built to reduce pressure, not add more of it.": "Leeora는 압박을 더하는 공간이 아니라, 압박을 줄이는 공간을 지향합니다.",
-      "What kind of conversations happen inside Leeora?": "Leeora 안에서는 어떤 대화가 오가나요?",
-      "People talk about direction, uncertainty, transitions, identity, ambition, and questions that are often difficult to discuss openly elsewhere.": "Leeora에서는 방향, 불확실성, 전환, 정체성, 야망, 그리고 다른 곳에서는 쉽게 꺼내기 어려운 질문들을 나눕니다.",
-      "Do I need to have everything figured out already?": "이미 모든 방향이 정해져 있어야 하나요?",
-      "Not at all. Many people join while they are still thinking through uncertainty, possibilities, and what feels meaningful next.": "전혀 그렇지 않습니다. 많은 사람들은 아직 불확실성, 가능성, 그리고 다음에 무엇이 의미 있게 느껴지는지 고민하는 과정에서 함께합니다.",
-      "What if I need more structured career support later?": "나중에 더 구조적인 커리어 도움이 필요하면 어떻게 되나요?",
-      "Leeora is community-first.": "Leeora는 커뮤니티를 먼저 생각합니다.",
-      "For some members, there may come a time when open conversations are no longer enough — when they want to clarify their direction, understand how their experiences translate into the real career market, or think through their next steps with more structure.": "어떤 멤버들에게는 열린 대화만으로는 충분하지 않다고 느끼는 시점이 올 수 있습니다. 자신의 방향을 더 분명히 정리하고 싶거나, 자신의 경험이 실제 커리어 시장에서 어떻게 해석될 수 있는지 알고 싶거나, 다음 단계를 더 구조적으로 생각해보고 싶을 때입니다.",
-      "When that moment comes, Leeora may share optional pathways to trusted career professionals and carefully considered guidance.": "그 순간이 오면 Leeora는 신뢰할 수 있는 커리어 전문가와 더 깊이 있는 가이던스로 이어질 수 있는 선택지를 조심스럽게 안내할 수 있습니다.",
-      "Only if it feels relevant.": "본인에게 필요하다고 느껴질 때만입니다.",
-      "Always at your own pace.": "언제나 본인의 속도에 맞춰서입니다.",
-      "Never as a requirement for being part of the community.": "커뮤니티 참여를 위한 필수 조건은 절대 아닙니다.",
-      "Early community": "초기 커뮤니티",
-      "We’re looking for the first people who want to help shape Leeora.": "Leeora를 함께 만들어갈 첫 사람들을 기다립니다.",
-      "Tell us a little about your experience, questions, or thoughts that still feel difficult to fully explain.": "당신의 경험, 질문, 혹은 아직 말로 다 설명하기 어려운 생각을 짧게 들려주세요.",
-      "Selected early members will be invited to join the first Leeora Slack community.": "초기 멤버로 선정되면 Leeora의 첫 Slack 커뮤니티에 가장 먼저 합류하게 됩니다.",
-      "Community first. Perspective before pressure.": "커뮤니티가 먼저입니다. 압박보다 관점을 먼저 나눕니다."
-};
-
-    const originalText = new Map();
-    const languageToggle = document.getElementById('languageToggle');
-    let currentLanguage = 'en';
-
-    function walkTextNodes(root) {
-      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
-        acceptNode(node) {
-          if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
-          if (node.parentElement && node.parentElement.id === 'languageToggle') return NodeFilter.FILTER_REJECT;
-          if (node.parentElement && ['SCRIPT', 'STYLE'].includes(node.parentElement.tagName)) return NodeFilter.FILTER_REJECT;
-          return NodeFilter.FILTER_ACCEPT;
-        }
-      });
-      const nodes = [];
-      while (walker.nextNode()) nodes.push(walker.currentNode);
-      return nodes;
-    }
-
-    function setLanguage(lang) {
-      const nodes = walkTextNodes(document.body);
-      nodes.forEach((node) => {
-        if (!originalText.has(node)) originalText.set(node, node.nodeValue);
-        const sourceText = originalText.get(node);
-        const trimmed = sourceText.trim();
-        const leadingLength = sourceText.length - sourceText.trimStart().length;
-        const trailingLength = sourceText.length - sourceText.trimEnd().length;
-        const leading = sourceText.slice(0, leadingLength);
-        const trailing = sourceText.slice(sourceText.length - trailingLength);
-        if (lang === 'ko' && translations[trimmed]) {
-          node.nodeValue = leading + translations[trimmed] + trailing;
-        } else if (lang === 'en') {
-          node.nodeValue = sourceText;
-        }
-      });
-      currentLanguage = lang;
-      document.documentElement.lang = lang === 'ko' ? 'ko' : 'en';
-      languageToggle.textContent = lang === 'ko' ? 'EN' : 'KR';
-    }
-
-    languageToggle.addEventListener('click', () => {
-      setLanguage(currentLanguage === 'en' ? 'ko' : 'en');
+    // Header Scroll Styling
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
     });
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    // Language Toggle logic
+    function setLang(lang){
+      document.body.classList.toggle('kr', lang==='kr');
+      document.documentElement.lang = lang;
+      document.getElementById('btn-en').classList.toggle('active', lang==='en');
+      document.getElementById('btn-kr').classList.toggle('active', lang==='kr');
+      
+      document.querySelectorAll('[data-en]').forEach(function(el){
+        el.innerHTML = el.getAttribute('data-'+lang).replace(/\|/g, '<br>');
+      });
+    }
+
+    // FAQ Accordion logic
+    function toggleFaq(btn){
+      const item = btn.parentElement;
+      const ans = btn.nextElementSibling;
+      const isOpen = item.classList.contains('open');
+      
+      // Close all other FAQs for clean UX
+      document.querySelectorAll('.faq-item').forEach(el => {
+        if(el !== item) {
+          el.classList.remove('open');
+          el.querySelector('.faq-a').style.maxHeight = 0;
+        }
+      });
+
+      if(isOpen){ 
+        item.classList.remove('open'); 
+        ans.style.maxHeight = 0; 
+      } else { 
+        item.classList.add('open'); 
+        ans.style.maxHeight = ans.scrollHeight + 'px'; 
+      }
+    }
+
+    // Scroll Reveal Observer
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12 });
+    }, observerOptions);
 
-    document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+    document.querySelectorAll('.reveal').forEach(el => {
+      observer.observe(el);
+    });
   </script>
 </body>
 </html>
