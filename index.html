@@ -1,17 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
-  <!-- Leeora FAQ2 reflection wording fixed v2: 남겨주신 기록을 시작점으로 삼아, 초기 멤버 초대를 천천히 열어가고 있습니다. -->
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Leeora — Community for Growth & Connection</title>
-  
+  <title>Leeora — A community for our years abroad and what comes next</title>
+  <meta name="description" content="Leeora is a small community for Korean students and graduates from universities abroad — to make sense of our experiences together, beyond generic career advice.">
+
+  <!-- Open Graph: 인스타/카톡 링크 공유 시 미리보기 -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Leeora — Our years abroad are more than a bullet point.">
+  <meta property="og:description" content="A community for Korean students and graduates from universities abroad. Leave a short reflection to join.">
+  <meta property="og:url" content="https://leeoracareers.com">
+  <meta name="theme-color" content="#12303f">
+
   <!-- Fonts: Plus Jakarta Sans (EN display/body) & Noto Sans KR (KR body/display) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-  
+
   <style>
     :root {
       /* Palette */
@@ -30,7 +36,7 @@
       --radius-sm: 16px;
       --font-en: "Plus Jakarta Sans", "Noto Sans KR", sans-serif;
       --font-kr: "Noto Sans KR", "Plus Jakarta Sans", sans-serif;
-      
+
       /* Spacing & Transitions */
       --transition: cubic-bezier(0.16, 1, 0.3, 1);
       --duration: 0.5s;
@@ -46,6 +52,12 @@
       scroll-behavior: smooth;
       background: var(--bg);
     }
+
+    html.no-js .reveal {
+      opacity: 1;
+      transform: none;
+    }
+
 
     body {
       font-family: var(--font-en);
@@ -89,14 +101,13 @@
       line-height: 1.1;
       font-weight: 800;
     }
-    
+
     .kr h1, .kr h2, .kr h3 {
       font-family: var(--font-kr);
       letter-spacing: -0.035em;
       line-height: 1.3;
       font-weight: 700;
     }
-
 
     /* Balanced wrapping for polished KR/EN line breaks */
     .lead, .sec-h, .sec-sub, .mockup-q, .qcard h3, .card h3, .card p, .why h2, .why p, .faq-q, .faq-a .inner, .sbody h3, .sbody p, .cta-box h2, .cta-box p {
@@ -110,14 +121,14 @@
 
     @media (max-width: 520px) {
       .hero h1 {
-        font-size: clamp(32px, 9vw, 38px);
+        font-size: clamp(30px, 8.8vw, 40px);
+        line-height: 1.12;
       }
 
       .lead {
         max-width: 94%;
       }
     }
-
 
     @media (max-width: 520px) {
       .kr .hero h1 {
@@ -361,7 +372,7 @@
     }
 
     .hero h1 {
-      font-size: clamp(36px, 5.1vw, 54px);
+      font-size: clamp(38px, 5.5vw, 56px);
       color: var(--navy);
       margin-bottom: 24px;
     }
@@ -1094,10 +1105,17 @@
       opacity: 0.85;
     }
 
+    .cta-box .privacy-note {
+      font-size: 12px;
+      color: var(--gray-soft);
+      margin-top: 14px;
+      letter-spacing: 0.01em;
+    }
+
     /* FOOTER */
     footer {
       background: var(--card);
-      padding: 40px 0;
+      padding: 48px 0;
       border-top: 1px solid var(--line);
     }
 
@@ -1107,7 +1125,7 @@
       gap: 20px;
       align-items: center;
       justify-content: space-between;
-      font-size: 12px;
+      font-size: 12.5px;
       color: var(--gray-soft);
       font-weight: 600;
     }
@@ -1115,12 +1133,39 @@
     @media (min-width: 600px) {
       .footer-layout {
         flex-direction: row;
+        align-items: flex-start;
       }
     }
 
     .footer-right {
       display: flex;
-      gap: 16px;
+      flex-direction: column;
+      gap: 8px;
+      align-items: center;
+      text-align: center;
+    }
+
+    @media (min-width: 600px) {
+      .footer-right {
+        align-items: flex-end;
+        text-align: right;
+      }
+    }
+
+    .footer-right a {
+      color: var(--teal-deep);
+      text-decoration: none;
+      font-weight: 700;
+      transition: color 0.2s;
+    }
+
+    .footer-right a:hover {
+      color: var(--teal);
+    }
+
+    .footer-copy {
+      font-weight: 500;
+      color: var(--gray-soft);
     }
 
     /* Scroll reveal reveal-on-scroll */
@@ -1134,7 +1179,24 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* Reduced motion accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .badge .led { animation: none; }
+      .mockup-card, .card, .qcard, .step-card, .cta, .header-cta-btn { transition: none; }
+    }
   </style>
+
+  <script>
+    document.documentElement.classList.remove('no-js');
+    document.documentElement.classList.add('js');
+  </script>
 </head>
 <body>
 
@@ -1142,7 +1204,7 @@
   <header id="header">
     <div class="container header-nav">
       <a href="#" class="brand">
-        <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <defs>
             <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stop-color="#2c7a6e" />
@@ -1160,13 +1222,13 @@
         </svg>
         <span>Leeora</span>
       </a>
-      
+
       <nav class="nav-links">
-        <a href="#why" data-en="Why Us" data-kr="존재 이유">Why Us</a>
-        <a href="#who" data-en="Who It's For" data-kr="대상">Who It's For</a>
-        <a href="#questions" data-en="Questions" data-kr="질문들">Questions</a>
-        <a href="#faq" data-en="FAQ" data-kr="자주 묻는 질문">FAQ</a>
-        <a href="#how" data-en="How It Works" data-kr="참여 흐름">How It Works</a>
+        <a href="#why" data-en="Why Us" data-kr="존재 이유">존재 이유</a>
+        <a href="#who" data-en="Who It's For" data-kr="대상">대상</a>
+        <a href="#questions" data-en="Questions" data-kr="질문들">질문들</a>
+        <a href="#faq" data-en="FAQ" data-kr="자주 묻는 질문">자주 묻는 질문</a>
+        <a href="#how" data-en="How It Works" data-kr="참여 흐름">참여 흐름</a>
       </nav>
 
       <div class="header-right">
@@ -1174,7 +1236,7 @@
           <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
           <button id="btn-kr" onclick="setLang('kr')">KR</button>
         </div>
-        <a href="https://tally.so/r/jakor1" target="_blank" rel="noopener" class="header-cta-btn" data-en="Start a Short Reflection" data-kr="짧은 설문 남기기">Start a Short Reflection</a>
+        <a href="https://tally.so/r/jakor1" target="_blank" rel="noopener" class="header-cta-btn" data-en="Leave a Short Reflection" data-kr="짧은 기록 남기기">Leave a Short Reflection</a>
       </div>
     </div>
   </header>
@@ -1186,12 +1248,12 @@
         <div class="hero-text">
           <span class="badge reveal" style="transition-delay: 0.1s;">
             <span class="led"></span>
-            <span data-en="For UK students & graduates thinking about work, life, and what comes next" data-kr="영국 유학생과 졸업생이|일과 삶, 그리고 다음 선택을 생각해보는 곳">For UK students & graduates thinking about work, life, and what comes next</span>
+            <span data-en="For Korean students & graduates abroad — thinking about work, life, and what comes next" data-kr="해외 유학생과 졸업생이|일과 삶, 그리고 다음 선택을 생각해보는 곳">For Korean students &amp; graduates abroad — thinking about work, life, and what comes next</span>
           </span>
-          <h1 class="reveal" style="transition-delay: 0.2s;" data-en="Our UK years are|more than a CV&nbsp;line." data-kr="영국에서 보낸 시간이|이력서 한 줄로 끝나지 않도록.">Our UK years are<br>more than a CV&nbsp;line.</h1>
-          <p class="lead reveal" style="transition-delay: 0.3s;" data-en="Leeora is a small community started for those who want to understand what our experiences mean for work, life, and the choices ahead — beyond generic career advice." data-kr="Leeora는 흔한 취업 조언보다,|그 경험이 앞으로의 일과 삶에서|어떤 의미가 되는지 함께 생각해볼 수 있는|커뮤니티가 있으면 좋겠다는 마음에서 시작됐습니다.">Leeora is a small community started for those who want to understand what our experiences mean for work, life, and the choices ahead — beyond generic career advice.</p>
+          <h1 class="reveal" style="transition-delay: 0.2s;" data-en="Our years abroad are|more than a bullet&nbsp;point." data-kr="해외에서 보낸 시간이|스펙 한 줄로 끝나지 않도록.">Our years abroad are<br>more than a bullet&nbsp;point.</h1>
+          <p class="lead reveal" style="transition-delay: 0.3s;" data-en="Leeora is a small community started for those who want to understand what our experiences mean for work, life, and the choices ahead — beyond generic career advice." data-kr="Leeora는 흔한 취업 조언보다,|해외에서 보낸 시간이 앞으로의 일과 삶에서|어떤 의미가 되는지 함께 생각해볼 수 있는|커뮤니티가 있으면 좋겠다는 마음에서 시작됐습니다.">Leeora is a small community started for those who want to understand what our experiences mean for work, life, and the choices ahead — beyond generic career advice.</p>
           <div class="hero-actions reveal" style="transition-delay: 0.4s;">
-            <a href="https://tally.so/r/jakor1" target="_blank" rel="noopener" class="cta" data-en="Start a Short Reflection" data-kr="짧은 설문 남기기">Start a Short Reflection</a>
+            <a href="https://tally.so/r/jakor1" target="_blank" rel="noopener" class="cta" data-en="Leave a Short Reflection" data-kr="짧은 기록 남기기">Leave a Short Reflection</a>
             <a href="#why" class="explore">
               <span data-en="Why Leeora Started" data-kr="Leeora가 왜 시작됐는지 보기">Why Leeora Started</span>
               <span>↓</span>
@@ -1206,7 +1268,7 @@
             <div class="mockup-card card-top">
               <div>
                 <div class="mockup-tag" data-en="Today's question" data-kr="오늘의 질문">Today's question</div>
-                <div class="mockup-q" data-en="What does my UK experience mean for what comes next?" data-kr="내 영국 경험은 다음 선택에 어떤 의미가 될까?">What does my UK experience mean for what comes next?</div>
+                <div class="mockup-q" data-en="How did my time abroad change the way I see the world — and myself?" data-kr="해외에서의 시간은 세상과 나를 보는 방식을 어떻게 바꿨을까?">How did my time abroad change the way I see the world — and myself?</div>
                 <div class="mockup-note-lines" aria-hidden="true">
                   <span></span>
                   <span></span>
@@ -1216,7 +1278,7 @@
               <div class="mockup-footer">
                 <div class="mockup-author">
                   <div class="mockup-avatar">
-                    <svg class="logo-icon" style="width: 18px; height: 18px; display: block;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="logo-icon" style="width: 18px; height: 18px; display: block;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                       <circle cx="50" cy="50" r="46" stroke="url(#logoGrad)" stroke-width="8" fill="none" />
                       <ellipse cx="50" cy="50" rx="18" ry="46" stroke="url(#logoGrad)" stroke-width="7" fill="none" transform="rotate(0 50 50)" />
                       <ellipse cx="50" cy="50" rx="18" ry="46" stroke="url(#logoGrad)" stroke-width="7" fill="none" transform="rotate(60 50 50)" />
@@ -1225,7 +1287,7 @@
                   </div>
                   <div class="mockup-meta">Leeora Circle</div>
                 </div>
-                <div class="mockup-meta" data-en="Early Access" data-kr="초기 입장">Early Access</div>
+                <div class="mockup-meta" data-en="Early invitations open" data-kr="첫 멤버 초대 중">Early invitations open</div>
               </div>
             </div>
           </div>
@@ -1238,13 +1300,13 @@
       <div class="container why-content reveal">
         <span class="badge on-dark">
           <span class="led"></span>
-          <span data-en="Why Leeora exists" data-kr="Leeora가 시작된 이유">Why Leeora exists</span>
+          <span data-en="Why Leeora exists" data-kr="Leeora가 시작된 이유">Leeora가 시작된 이유</span>
         </span>
-        <h2 data-en="There is no single right answer. So instead of handing you one, we look at the questions behind it." data-kr="정해진 정답은 없기에, 우리는 섣부른 답을 건네기보다 그 이면의 질문을 함께 바라봅니다.">There is no single right answer. So instead of handing you one, we look at the questions behind it.</h2>
-        <p data-en="The hardest part often isn't missing information — it's figuring out how to weave your journey abroad into a life that truly fits you." data-kr="가장 어려운 건 정보가 부족해서가 아닙니다.|해외에서 걸어온 여정을|나에게 진짜 맞는 삶 속으로|어떻게 엮어갈지 알아가는 일입니다.">The hardest part often isn't missing information — it's figuring out how to weave your journey abroad into a life that truly fits you.</p>
+        <h2 data-en="There is no single right answer. So instead of handing you one, we look at the questions behind it." data-kr="정해진 정답은 없기에, 우리는 섣부른 답을 건네기보다 그 이면의 질문을 함께 바라봅니다.">정해진 정답은 없기에, 우리는 섣부른 답을 건네기보다 그 이면의 질문을 함께 바라봅니다.</h2>
+        <p data-en="The hardest part often isn't missing information — it's figuring out how to weave your journey abroad into a life that truly fits you." data-kr="가장 어려운 건 정보가 부족해서가 아닙니다.|해외에서 걸어온 여정을|나에게 진짜 맞는 삶 속으로|어떻게 엮어갈지 알아가는 일입니다.">가장 어려운 건 정보가 부족해서가 아닙니다.<br>해외에서 걸어온 여정을<br>나에게 진짜 맞는 삶 속으로<br>어떻게 엮어갈지 알아가는 일입니다.</p>
         <div class="quote">
-          <span data-en="“Do you need more information — or a better question?”" data-kr="“우리에게 지금 필요한 것은 더 많은 정보일까요, 아니면 더 본질적인 질문일까요?”">“Do you need more information — or a better question?”</span>
-          <span class="src" data-en="Leeora community principle" data-kr="Leeora의 커뮤니티 철학">Leeora community principle</span>
+          <span data-en="“Do you need more information — or a better question?”" data-kr="“우리에게 지금 필요한 것은 더 많은 정보일까요, 아니면 더 본질적인 질문일까요?”">“우리에게 지금 필요한 것은 더 많은 정보일까요, 아니면 더 본질적인 질문일까요?”</span>
+          <span class="src" data-en="Leeora community principle" data-kr="Leeora의 커뮤니티 철학">Leeora의 커뮤니티 철학</span>
         </div>
       </div>
     </section>
@@ -1255,32 +1317,32 @@
         <div class="section-head">
           <span class="badge">
             <span class="led"></span>
-            <span data-en="Who this is for" data-kr="이런 고민을 하시는 분들을 위해">Who this is for</span>
+            <span data-en="Who this is for" data-kr="이런 고민을 하시는 분들을 위해">이런 고민을 하시는 분들을 위해</span>
           </span>
-          <h2 class="sec-h" data-en="For people still figuring out what comes next." data-kr="아직 다음 페이지를 그려나가는 중인 분들을 위해.">For people still figuring out what comes next.</h2>
-          <p class="sec-sub" data-en="A few examples — and plenty that aren't listed here." data-kr="이런 고민의 순간들을 지나고 계시다면 — 비록 아래의 예시에 완벽히 맞지 않더라도 괜찮습니다.">A few examples — and plenty that aren't listed here.</p>
+          <h2 class="sec-h" data-en="For people still figuring out what comes next." data-kr="아직 다음 페이지를 그려나가는 중인 분들을 위해.">아직 다음 페이지를 그려나가는 중인 분들을 위해.</h2>
+          <p class="sec-sub" data-en="A few examples — and plenty that aren't listed here." data-kr="이런 고민의 순간들을 지나고 계시다면 — 비록 아래의 예시에 완벽히 맞지 않더라도 괜찮습니다.">이런 고민의 순간들을 지나고 계시다면 — 비록 아래의 예시에 완벽히 맞지 않더라도 괜찮습니다.</p>
         </div>
 
         <div class="card-grid">
           <div class="card">
             <span class="num">01</span>
-            <h3 data-en="Experiences hard to explain" data-kr="한 줄로 설명하기 어려운 경험들">Experiences hard to explain</h3>
-            <p data-en="Parts of your background don't fit neat career language." data-kr="내가 지나온 시간과 배경의 어떤 조각들은, 이력서의 뻔한 커리어 언어에 쉽게 담기지 않습니다.">Parts of your background don't fit neat career language.</p>
+            <h3 data-en="Experiences hard to explain" data-kr="한 줄로 설명하기 어려운 경험들">한 줄로 설명하기 어려운 경험들</h3>
+            <p data-en="Parts of your background don't fit neat career language." data-kr="내가 지나온 시간과 배경의 어떤 조각들은, 이력서의 뻔한 커리어 언어에 쉽게 담기지 않습니다.">내가 지나온 시간과 배경의 어떤 조각들은, 이력서의 뻔한 커리어 언어에 쉽게 담기지 않습니다.</p>
           </div>
           <div class="card">
             <span class="num">02</span>
-            <h3 data-en="Still finding what fits" data-kr="진짜 나에게 어울리는 것을 찾는 여정">Still finding what fits</h3>
-            <p data-en="Thinking through choices, where to anchor yourself, and the kind of life that feels right." data-kr="어떤 선택을 할지,|어디에 나를 뿌리내릴지,|그리고 어떤 삶이 나에게 맞는지|함께 생각해봅니다.">Thinking through choices, where to anchor yourself, and the kind of life that feels right.</p>
+            <h3 data-en="Still finding what fits" data-kr="진짜 나에게 어울리는 것을 찾는 여정">진짜 나에게 어울리는 것을 찾는 여정</h3>
+            <p data-en="Thinking through choices, where to anchor yourself, and the kind of life that feels right." data-kr="어떤 선택을 할지,|어디에 나를 뿌리내릴지,|그리고 어떤 삶이 나에게 맞는지|함께 생각해봅니다.">어떤 선택을 할지,<br>어디에 나를 뿌리내릴지,<br>그리고 어떤 삶이 나에게 맞는지<br>함께 생각해봅니다.</p>
           </div>
           <div class="card">
             <span class="num">03</span>
-            <h3 data-en="Perspective, not pressure" data-kr="평가가 아닌 따뜻한 관점">Perspective, not pressure</h3>
-            <p data-en="Honest conversation without needing polished answers first." data-kr="그럴듯하게 정제된 정답을 서둘러 내놓지 않아도 되는, 안전하고 솔직한 대화가 필요합니다.">Honest conversation without needing polished answers first.</p>
+            <h3 data-en="Perspective, not pressure" data-kr="평가가 아닌 따뜻한 관점">평가가 아닌 따뜻한 관점</h3>
+            <p data-en="Honest conversation without needing polished answers first." data-kr="그럴듯하게 정제된 정답을 서둘러 내놓지 않아도 되는, 안전하고 솔직한 대화가 필요합니다.">그럴듯하게 정제된 정답을 서둘러 내놓지 않아도 되는, 안전하고 솔직한 대화가 필요합니다.</p>
           </div>
         </div>
 
         <div class="bridge-box">
-          <p class="bridge" data-en="If any of this feels familiar, you can start with a short reflection. ↓" data-kr="조금이라도 익숙하게 느껴진다면, 짧은 설문으로 가볍게 시작해보세요. ↓" onclick="document.getElementById('cta-sec').scrollIntoView({behavior: 'smooth'})">If any of this feels familiar, you can start with a short reflection. ↓</p>
+          <p class="bridge" data-en="If any of this feels familiar, you can start with a short reflection. ↓" data-kr="조금이라도 익숙하게 느껴진다면, 짧은 기록으로 가볍게 시작해보세요. ↓" onclick="document.getElementById('cta-sec').scrollIntoView({behavior: 'smooth'})">조금이라도 익숙하게 느껴진다면, 짧은 기록으로 가볍게 시작해보세요. ↓</p>
         </div>
       </div>
     </section>
@@ -1291,16 +1353,16 @@
         <div class="section-head">
           <span class="badge">
             <span class="led"></span>
-            <span data-en="Questions shared inside Leeora" data-kr="Leeora 안에서 싹트는 질문들">Questions shared inside Leeora</span>
+            <span data-en="Questions shared inside Leeora" data-kr="Leeora 안에서 싹트는 질문들">Leeora 안에서 싹트는 질문들</span>
           </span>
-          <h2 class="sec-h" data-en="A community that starts with questions." data-kr="오직 질문에서 출발하는 커뮤니티.">A community that starts with questions.</h2>
+          <h2 class="sec-h" data-en="A community that starts with questions." data-kr="오직 질문에서 출발하는 커뮤니티.">오직 질문에서 출발하는 커뮤니티.</h2>
         </div>
 
         <div class="q-grid">
           <div class="qcard">
             <div>
-              <div class="tag" data-en="Today's question" data-kr="오늘의 질문">Today's question</div>
-              <h3 data-en="How do I explain what I learned abroad beyond a line on my CV?" data-kr="해외에서 배운 것을 이력서 한 줄 너머로 어떻게 설명할 수 있을까?">How do I explain what I learned abroad beyond a line on my CV?</h3>
+              <div class="tag" data-en="Today's question" data-kr="오늘의 질문">오늘의 질문</div>
+              <h3 data-en="Going back to Korea, or staying abroad — am I choosing a place, or a version of myself?" data-kr="한국으로 돌아갈까, 여기 남을까 — 나는 지금 장소를 고르는 걸까, 아니면 나의 모습을 고르는 걸까?">Going back to Korea, or staying abroad — am I choosing a place, or a version of myself?</h3>
               <div class="qcard-note-lines" aria-hidden="true">
                 <span></span>
                 <span></span>
@@ -1310,20 +1372,20 @@
           </div>
           <div class="qcard dark">
             <div>
-              <div class="tag" data-en="Slow conversation" data-kr="느린 대화">Slow conversation</div>
-              <h3 data-en="How do you protect your own pace when the world expects you to constantly prove your worth?" data-kr="세상이 끊임없이|나의 가치를 증명하라고 요구할 때,|나는 어떻게 나만의 속도를 지킬 수 있을까?">How do you protect your own pace when the world expects you to constantly prove your worth?</h3>
+              <div class="tag" data-en="Slow conversation" data-kr="느린 대화">느린 대화</div>
+              <h3 data-en="How do you protect your own pace when the world expects you to constantly prove your worth?" data-kr="세상이 끊임없이|나의 가치를 증명하라고 요구할 때,|나는 어떻게 나만의 속도를 지킬 수 있을까?">세상이 끊임없이<br>나의 가치를 증명하라고 요구할 때,<br>나는 어떻게 나만의 속도를 지킬 수 있을까?</h3>
             </div>
           </div>
           <div class="qcard">
             <div>
-              <div class="tag" data-en="A name shared together" data-kr="함께 붙이는 이름">A name shared together</div>
-              <h3 data-en="Some experiences only begin to make sense when someone names them with you." data-kr="어떤 막연한 경험들은 누군가 곁에서 함께 이름을 붙여줄 때, 비로소 선명하게 이해되기 시작합니다.">Some experiences only begin to make sense when someone names them with you.</h3>
+              <div class="tag" data-en="A name shared together" data-kr="함께 붙이는 이름">함께 붙이는 이름</div>
+              <h3 data-en="Some experiences only begin to make sense when someone names them with you." data-kr="어떤 막연한 경험들은 누군가 곁에서 함께 이름을 붙여줄 때, 비로소 선명하게 이해되기 시작합니다.">어떤 막연한 경험들은 누군가 곁에서 함께 이름을 붙여줄 때, 비로소 선명하게 이해되기 시작합니다.</h3>
             </div>
           </div>
           <div class="qcard">
             <div>
-              <div class="tag" data-en="Community principle" data-kr="커뮤니티 원칙">Community principle</div>
-              <h3 class="principle" data-en="Only advice that's asked for. No comparison. Nothing shared outside without consent." data-kr="먼저 요청한 조언만을 나누기. 타인과의 비교를 내려놓기. 동의 없는 이야기를 절대 밖에 발설하지 않기.">Only advice that's asked for. No comparison. Nothing shared outside without consent.</h3>
+              <div class="tag" data-en="Community principle" data-kr="커뮤니티 원칙">커뮤니티 원칙</div>
+              <h3 class="principle" data-en="Only advice that's asked for. No comparison. Nothing leaves this space without consent." data-kr="먼저 요청한 조언만을 나누기. 타인과의 비교를 내려놓기. 동의 없이는 어떤 이야기도 밖으로 가져가지 않기.">먼저 요청한 조언만을 나누기. 타인과의 비교를 내려놓기. 동의 없이는 어떤 이야기도 밖으로 가져가지 않기.</h3>
             </div>
           </div>
         </div>
@@ -1339,45 +1401,58 @@
               <span class="led"></span>
               FAQ
             </span>
-            <h2 class="sec-h" data-en="A calmer way to start career conversations" data-kr="내 일에 대한 대화를, 한층 더 차분하고 깊이 있게">A calmer way to start career conversations</h2>
-            <p class="sec-sub" data-en="Leeora is built to reduce pressure, not add more of it." data-kr="Leeora는 불안과 압박을 더하는 공간이 아닙니다. 오히려 그것을 온전히 내려놓을 수 있도록 돕기 위해 태어났습니다.">Leeora is built to reduce pressure, not add more of it.</p>
+            <h2 class="sec-h" data-en="A gentler way to begin the conversation" data-kr="조금 더 가볍고 조심스럽게 시작하는 대화">조금 더 가볍고 조심스럽게 시작하는 대화</h2>
+            <p class="sec-sub" data-en="Leeora starts with a short reflection — not an application, not an evaluation." data-kr="Leeora는 지원서나 평가가 아니라, 짧은 기록 하나에서 시작합니다.">Leeora는 지원서나 평가가 아니라, 짧은 기록 하나에서 시작합니다.</p>
           </div>
 
           <div class="faq-items">
             <div class="faq-item">
-              <button class="faq-q" onclick="toggleFaq(this)">
-                <span data-en="What kind of conversations happen inside Leeora?" data-kr="Leeora 안에서는 주로 어떤 이야기들이 오가나요?">What kind of conversations happen inside Leeora?</span>
+              <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+                <span data-en="What kind of conversations happen inside Leeora?" data-kr="Leeora 안에서는 어떤 이야기를 나누나요?">Leeora 안에서는 어떤 이야기를 나누나요?</span>
                 <span class="pm"></span>
               </button>
               <div class="faq-a">
                 <div class="inner">
-                  <p data-en="People talk about direction, uncertainty, transitions, identity, ambition, and questions that are often hard to discuss openly elsewhere." data-kr="삶의 방향성, 어쩔 수 없는 불확실함, 내 인생의 크고 작은 전환점과 정체성, 그리고 가슴 깊이 품은 야망까지 — 다른 곳에서는 쉽게 꺼내기 힘든 본질적인 질문들을 함께 나눕니다.">People talk about direction, uncertainty, transitions, identity, ambition, and questions that are often hard to discuss openly elsewhere.</p>
+                  <p data-en="People share questions about work, life, direction, returning to Korea, and how their years abroad are beginning to shape what comes next." data-kr="일, 삶, 방향, 한국으로 돌아가는 문제, 그리고 해외에서의 시간이 앞으로의 선택에 어떤 의미가 되는지에 대한 질문을 함께 나눕니다.">People share questions about work, life, direction, returning to Korea, and how their years abroad are beginning to shape what comes next.</p>
                 </div>
               </div>
             </div>
 
             <div class="faq-item">
-              <button class="faq-q" onclick="toggleFaq(this)">
-                <span data-en="Why do I start with a short reflection form?" data-kr="왜 먼저 짧은 설문을 남기나요?">Why do I start with a short reflection form?</span>
+              <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+                <span data-en="Why do I start with a short reflection?" data-kr="왜 먼저 짧은 기록을 남기나요?">왜 먼저 짧은 기록을 남기나요?</span>
                 <span class="pm"></span>
               </button>
               <div class="faq-a">
                 <div class="inner">
-                  <p data-en="Leeora is beginning as a small, private community. We ask for a short reflection first so the first conversations can begin with care, trust, and a shared sense of context." data-kr="Leeora는 작은 비공개 커뮤니티로 시작합니다.|처음 나누는 대화가 안전하고 사려 깊게 이어질 수 있도록, 먼저 짧은 생각을 남겨 받고 있습니다.">Leeora is beginning as a small, private community. We ask for a short reflection first so the first conversations can begin with care, trust, and a shared sense of context.</p>
-                  <p data-en="After you leave your reflection, we’ll open early invitations step by step." data-kr="남겨주신 기록을 시작점으로 삼아, 초기 멤버 초대를 천천히 열어가고 있습니다.">After you leave your reflection, we’ll open early invitations step by step.</p>
+                  <p data-en="Leeora is beginning as a small, private community. We ask for a short reflection first so the first conversations can begin with care, trust, and a shared sense of context." data-kr="Leeora는 작은 비공개 커뮤니티로 시작합니다.|처음 나누는 대화가 안전하고 사려 깊게 이어질 수 있도록, 먼저 짧은 생각을 남겨 받고 있습니다.">Leeora는 작은 비공개 커뮤니티로 시작합니다.<br>처음 나누는 대화가 안전하고 사려 깊게 이어질 수 있도록, 먼저 짧은 생각을 남겨 받고 있습니다.</p>
+                  <p data-en="After you leave your reflection, we’ll open early invitations step by step." data-kr="남겨주신 기록을 시작점으로 삼아, 초기 멤버 초대를 천천히 열어가고 있습니다.">남겨주신 기록을 시작점으로 삼아, 초기 멤버 초대를 천천히 열어가고 있습니다.</p>
                 </div>
               </div>
             </div>
 
             <div class="faq-item">
-              <button class="faq-q" onclick="toggleFaq(this)">
-                <span data-en="What if my question is not clearly about career yet?" data-kr="아직 내 질문이 커리어 고민인지 잘 모르겠다면요?">What if my question is not clearly about career yet?</span>
+              <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+                <span data-en="What if my question is not clearly about career yet?" data-kr="아직 내 질문이 커리어 고민인지 잘 모르겠다면요?">아직 내 질문이 커리어 고민인지 잘 모르겠다면요?</span>
                 <span class="pm"></span>
               </button>
               <div class="faq-a">
                 <div class="inner">
-                  <p data-en="That’s okay. Sometimes career questions first appear as questions about belonging, confidence, pressure, timing, or where you feel you are heading." data-kr="괜찮습니다. 때로 커리어 질문은 소속감, 자신감, 압박감, 타이밍, 앞으로 어디로 가고 있는지에 대한 막연한 감각으로 먼저 나타납니다.">That’s okay. Sometimes career questions first appear as questions about belonging, confidence, pressure, timing, or where you feel you are heading.</p>
-                  <p data-en="Leeora gives those unfinished questions a place to be spoken before they need to become clear answers." data-kr="Leeora는 그런 정리되지 않은 질문들이 선명한 답이 되기 전, 먼저 말해질 수 있는 공간입니다.">Leeora gives those unfinished questions a place to be spoken before they need to become clear answers.</p>
+                  <p data-en="That’s okay. Sometimes career questions first appear as questions about belonging, confidence, pressure, timing, or where you feel you are heading." data-kr="괜찮습니다. 때로 커리어 질문은 소속감, 자신감, 압박감, 타이밍, 앞으로 어디로 가고 있는지에 대한 막연한 감각으로 먼저 나타납니다.">괜찮습니다. 때로 커리어 질문은 소속감, 자신감, 압박감, 타이밍, 앞으로 어디로 가고 있는지에 대한 막연한 감각으로 먼저 나타납니다.</p>
+                  <p data-en="Leeora gives those unfinished questions a place to be spoken before they need to become clear answers." data-kr="Leeora는 그런 정리되지 않은 질문들이 선명한 답이 되기 전, 먼저 말해질 수 있는 공간입니다.">Leeora는 그런 정리되지 않은 질문들이 선명한 답이 되기 전, 먼저 말해질 수 있는 공간입니다.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+                <span data-en="Is joining the community free?" data-kr="커뮤니티 참여는 무료인가요?">커뮤니티 참여는 무료인가요?</span>
+                <span class="pm"></span>
+              </button>
+              <div class="faq-a">
+                <div class="inner">
+                  <p data-en="Yes. The early Leeora community is free. We are at the very beginning, building this space together with our first members." data-kr="네, 초기 Leeora 커뮤니티 참여는 무료입니다. 지금은 첫 멤버들과 함께 이 공간을 천천히 만들어가는 단계입니다.">네, 초기 Leeora 커뮤니티 참여는 무료입니다. 지금은 첫 멤버들과 함께 이 공간을 천천히 만들어가는 단계입니다.</p>
+                  <p data-en="Your reflection is read only by the Leeora team, and nothing is shared anywhere without your consent." data-kr="남겨주신 기록은 운영진만 읽으며, 동의 없이는 어디에도 공유되지 않습니다.">남겨주신 기록은 운영진만 읽으며, 동의 없이는 어디에도 공유되지 않습니다.</p>
                 </div>
               </div>
             </div>
@@ -1392,38 +1467,38 @@
         <div class="section-head">
           <span class="badge">
             <span class="led"></span>
-            <span data-en="How it works" data-kr="여정의 흐름">How it works</span>
+            <span data-en="How it works" data-kr="여정의 흐름">여정의 흐름</span>
           </span>
-          <h2 class="sec-h" data-en="Start small, and ease into the conversation." data-kr="아주 작은 발걸음으로 시작해, 서두르지 않고 서서히 스며듭니다.">Start small, and ease into the conversation.</h2>
+          <h2 class="sec-h" data-en="Start small, and ease into the conversation." data-kr="아주 작은 발걸음으로 시작해, 서두르지 않고 서서히 스며듭니다.">아주 작은 발걸음으로 시작해, 서두르지 않고 서서히 스며듭니다.</h2>
         </div>
 
         <div class="steps-grid">
           <div class="step-card">
             <span class="snum">1</span>
             <div class="sbody">
-              <h3 data-en="Start with a short reflection" data-kr="짧은 설문으로 시작하기">Start with a short reflection</h3>
-              <p data-en="A few honest lines about where you are right now. Not an application, not an evaluation." data-kr="지금 어디쯤 서 있는지 짧게 남겨주세요. 지원서도, 평가도 아닙니다.">A few honest lines about where you are right now. Not an application, not an evaluation.</p>
+              <h3 data-en="Leave a short reflection" data-kr="짧은 기록으로 시작하기">짧은 기록으로 시작하기</h3>
+              <p data-en="A few honest lines about where you are right now. Not an application, not an evaluation." data-kr="지금 어디쯤 서 있는지 짧게 남겨주세요. 지원서도, 평가도 아닙니다.">지금 어디쯤 서 있는지 짧게 남겨주세요. 지원서도, 평가도 아닙니다.</p>
             </div>
           </div>
           <div class="step-card">
             <span class="snum">2</span>
             <div class="sbody">
-              <h3 data-en="Meet your UK peers" data-kr="영국 경험을 가진 동료 만나기">Meet your UK peers</h3>
-              <p data-en="Selected members step into a trusted community space." data-kr="상호 신뢰를 바탕으로 가꾸어진 안전한 커뮤니티 공간으로 들어섭니다.">Selected members step into a trusted community space.</p>
+              <h3 data-en="Receive your invitation" data-kr="초대를 받고 들어오기">초대를 받고 들어오기</h3>
+              <p data-en="We read every reflection with care, and open invitations to the community one by one." data-kr="운영진이 남겨주신 기록을 천천히 읽고, 커뮤니티로 한 분씩 조심스럽게 초대합니다.">운영진이 남겨주신 기록을 천천히 읽고, 커뮤니티로 한 분씩 조심스럽게 초대합니다.</p>
             </div>
           </div>
           <div class="step-card">
             <span class="snum">3</span>
             <div class="sbody">
-              <h3 data-en="Think out loud" data-kr="생각을 꺼내어 말하기">Think out loud</h3>
-              <p data-en="You leave the question you're standing in front of, as an Ora." data-kr="현재 내가 가슴 깊이 마주하고 있는 핵심 질문을 한 장의 생각(Ora)으로 남깁니다.">You leave the question you're standing in front of, as an Ora.</p>
+              <h3 data-en="Think out loud" data-kr="생각을 꺼내어 말하기">생각을 꺼내어 말하기</h3>
+              <p data-en="You leave a question or thought you’re facing right now, as an Ora." data-kr="지금 내가 마주하고 있는 질문이나 생각을 한 장의 기록(Ora)으로 남깁니다.">지금 내가 마주하고 있는 질문이나 생각을 한 장의 기록(Ora)으로 남깁니다.</p>
             </div>
           </div>
           <div class="step-card">
             <span class="snum">4</span>
             <div class="sbody">
-              <h3 data-en="Receive questions and reflection" data-kr="질문과 따뜻한 비춤 받기">Receive questions and reflection</h3>
-              <p data-en="Not judgment or advice — people reflect you back through questions and perspective." data-kr="섣부른 평가나 조언을 건네는 대신, 깊이 있는 질문과 다양한 관점을 통해 서로의 모습을 비춰줍니다.">Not judgment or advice — people reflect you back through questions and perspective.</p>
+              <h3 data-en="Receive questions and reflection" data-kr="질문과 따뜻한 비춤 받기">질문과 따뜻한 비춤 받기</h3>
+              <p data-en="Not judgment or advice — people reflect you back through questions and perspective." data-kr="섣부른 평가나 조언을 건네는 대신, 깊이 있는 질문과 다양한 관점을 통해 서로의 모습을 비춰줍니다.">섣부른 평가나 조언을 건네는 대신, 깊이 있는 질문과 다양한 관점을 통해 서로의 모습을 비춰줍니다.</p>
             </div>
           </div>
         </div>
@@ -1436,15 +1511,16 @@
         <div class="cta-box">
           <span class="badge">
             <span class="led"></span>
-            <span data-en="Early community" data-kr="초기 커뮤니티">Early community</span>
+            <span data-en="Early community" data-kr="초기 커뮤니티">초기 커뮤니티</span>
           </span>
-          <h2 data-en="Start with a short reflection form." data-kr="짧은 설문으로 가볍게 시작해보세요.">Start with a short reflection form.</h2>
-          <p data-en="You don’t need a polished answer. A few honest lines about where you are right now is enough." data-kr="완성된 답변이 아니어도 괜찮습니다. 지금 어디쯤 서 있는지 짧게 남겨주시면 충분합니다.">You don’t need a polished answer. A few honest lines about where you are right now is enough.</p>
-          <p class="fine" data-en="Leeora is beginning slowly as a small private community." data-kr="Leeora는 작은 비공개 커뮤니티로 천천히 시작하고 있습니다.">Leeora is beginning slowly as a small private community.</p>
-          
-          <button class="cta" onclick="window.open('https://tally.so/r/jakor1', '_blank')" data-en="Start a Short Reflection" data-kr="짧은 설문 남기기">Start a Short Reflection</button>
-          
-          <p class="promise" data-en="Let’s shape our stories, together. No pressure, just perspective." data-kr="우리의 이야기를 함께 만들어가요.|압박 없이, 관점으로.">Let’s shape our stories, together. No pressure, just perspective.</p>
+          <h2 data-en="Start with a short reflection." data-kr="짧은 기록 하나로 가볍게 시작해보세요.">짧은 기록 하나로 가볍게 시작해보세요.</h2>
+          <p data-en="You don’t need a polished answer. A few honest lines about where you are right now is enough." data-kr="완성된 답변이 아니어도 괜찮습니다. 지금 어디쯤 서 있는지 짧게 남겨주시면 충분합니다.">완성된 답변이 아니어도 괜찮습니다. 지금 어디쯤 서 있는지 짧게 남겨주시면 충분합니다.</p>
+          <p class="fine" data-en="These reflections help us carefully invite early members into the first Leeora Circle." data-kr="남겨주신 짧은 기록을 바탕으로 첫 Leeora Circle 초대를 조심스럽게 열어갑니다.">남겨주신 짧은 기록을 바탕으로 첫 Leeora Circle 초대를 조심스럽게 열어갑니다.</p>
+
+          <a href="https://tally.so/r/jakor1" target="_blank" rel="noopener" class="cta" data-en="Leave a Short Reflection" data-kr="짧은 기록 남기기">Leave a Short Reflection</a>
+
+          <p class="promise" data-en="Let’s begin with a few honest lines. No pressure, just reflection." data-kr="짧은 기록에서 시작해요.|압박 없이, 천천히.">짧은 기록에서 시작해요.<br>압박 없이, 천천히.</p>
+          <p class="privacy-note" data-en="Your reflection is read only by the Leeora team and never shared without your consent." data-kr="남겨주신 기록은 운영진만 읽으며, 동의 없이는 어디에도 공유되지 않습니다.">남겨주신 기록은 운영진만 읽으며, 동의 없이는 어디에도 공유되지 않습니다.</p>
         </div>
       </div>
     </section>
@@ -1454,7 +1530,7 @@
   <footer>
     <div class="container footer-layout">
       <a href="#" class="brand" style="font-size: 18px;">
-        <svg class="logo-icon" style="width: 22px; height: 22px;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <svg class="logo-icon" style="width: 22px; height: 22px;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <circle cx="50" cy="50" r="46" stroke="url(#logoGrad)" stroke-width="6" fill="none" />
           <ellipse cx="50" cy="50" rx="18" ry="46" stroke="url(#logoGrad)" stroke-width="5" fill="none" transform="rotate(0 50 50)" />
           <ellipse cx="50" cy="50" rx="18" ry="46" stroke="url(#logoGrad)" stroke-width="5" fill="none" transform="rotate(60 50 50)" />
@@ -1463,7 +1539,9 @@
         <span>Leeora</span>
       </a>
       <div class="footer-right">
-        <span data-en="Let’s shape our stories, together. No pressure, just perspective." data-kr="우리의 이야기를 함께 만들어가요. 압박 없이, 관점으로.">Let’s shape our stories, together. No pressure, just perspective.</span>
+        <span data-en="Let’s begin with a few honest lines. No pressure, just reflection." data-kr="짧은 기록에서 시작해요. 압박 없이, 천천히.">짧은 기록에서 시작해요. 압박 없이, 천천히.</span>
+        <a href="mailto:hello@leeoracareers.com">hello@leeoracareers.com</a>
+        <span class="footer-copy">© 2026 Leeora. All rights reserved.</span>
       </div>
     </div>
   </footer>
@@ -1482,12 +1560,22 @@
     // Language Toggle logic
     function setLang(lang){
       document.body.classList.toggle('kr', lang==='kr');
-      document.documentElement.lang = lang;
+      document.documentElement.lang = lang==='kr' ? 'ko' : 'en';
       document.getElementById('btn-en').classList.toggle('active', lang==='en');
       document.getElementById('btn-kr').classList.toggle('active', lang==='kr');
-      
+
+      // Swap page title per language
+      document.title = lang==='kr'
+        ? 'Leeora — 해외에서의 시간을 함께 해석하는 커뮤니티'
+        : 'Leeora — A community for our years abroad and what comes next';
+
       document.querySelectorAll('[data-en]').forEach(function(el){
         el.innerHTML = el.getAttribute('data-'+lang).replace(/\|/g, '<br>');
+      });
+
+      // Recalculate heights of any open FAQ items (text length differs per language)
+      document.querySelectorAll('.faq-item.open .faq-a').forEach(function(ans){
+        ans.style.maxHeight = ans.scrollHeight + 'px';
       });
     }
 
@@ -1496,21 +1584,24 @@
       const item = btn.parentElement;
       const ans = btn.nextElementSibling;
       const isOpen = item.classList.contains('open');
-      
+
       // Close all other FAQs for clean UX
       document.querySelectorAll('.faq-item').forEach(el => {
         if(el !== item) {
           el.classList.remove('open');
           el.querySelector('.faq-a').style.maxHeight = 0;
+          el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
         }
       });
 
-      if(isOpen){ 
-        item.classList.remove('open'); 
-        ans.style.maxHeight = 0; 
-      } else { 
-        item.classList.add('open'); 
-        ans.style.maxHeight = ans.scrollHeight + 'px'; 
+      if(isOpen){
+        item.classList.remove('open');
+        ans.style.maxHeight = 0;
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        item.classList.add('open');
+        ans.style.maxHeight = ans.scrollHeight + 'px';
+        btn.setAttribute('aria-expanded', 'true');
       }
     }
 
@@ -1533,6 +1624,9 @@
     document.querySelectorAll('.reveal').forEach(el => {
       observer.observe(el);
     });
+
+    // Default language: EN (community identity — global Korean students)
+    setLang('en');
   </script>
 </body>
 </html>
