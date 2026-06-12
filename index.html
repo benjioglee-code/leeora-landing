@@ -1180,6 +1180,455 @@
       transform: translateY(0);
     }
 
+
+
+    /* Mobile QA refinements: tighter rhythm, safer line breaks, less empty card space */
+    @media (max-width: 520px) {
+      .container {
+        padding: 0 22px;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      header {
+        padding: 14px 0;
+      }
+
+      header.scrolled {
+        padding: 10px 0;
+      }
+
+      .brand {
+        font-size: 26px;
+        gap: 9px;
+      }
+
+      .brand .logo-icon {
+        width: 26px;
+        height: 26px;
+      }
+
+      .lang-switch button {
+        padding: 7px 15px;
+        font-size: 12px;
+      }
+
+      .badge {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: center;
+        text-align: center;
+        padding: 8px 14px;
+        line-height: 1.45;
+      }
+
+      .hero {
+        padding: 44px 0 66px;
+      }
+
+      .hero-grid {
+        gap: 36px;
+      }
+
+      .hero-text {
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: clamp(33px, 9.6vw, 38px);
+        line-height: 1.08;
+        letter-spacing: -0.045em;
+        margin-bottom: 22px;
+        text-wrap: balance;
+      }
+
+      .lead {
+        max-width: 100%;
+        font-size: 16.5px;
+        line-height: 1.65;
+        margin: 0 auto 30px;
+        text-align: center;
+      }
+
+      .hero-actions {
+        align-items: center;
+      }
+
+      .hero .cta,
+      .cta-box .cta {
+        width: 100%;
+        max-width: 360px;
+        padding: 17px 24px;
+        font-size: 16px;
+      }
+
+      .explore {
+        justify-content: center;
+      }
+
+      .mockup-stack {
+        max-width: 330px;
+        height: 318px;
+      }
+
+      .mockup-card {
+        padding: 24px;
+      }
+
+      .mockup-q {
+        font-size: clamp(19px, 5.7vw, 22px);
+        line-height: 1.38;
+      }
+
+      .mockup-note-lines {
+        margin-top: 22px;
+        gap: 18px;
+      }
+
+      .mockup-footer {
+        margin-top: 18px;
+        padding-top: 16px;
+      }
+
+      .section-head {
+        margin: 0 auto 36px;
+        text-align: center;
+      }
+
+      .sec-h {
+        font-size: clamp(29px, 8.6vw, 38px);
+        line-height: 1.13;
+        text-align: center;
+      }
+
+      .sec-sub {
+        text-align: center;
+        font-size: 16px;
+      }
+
+      .why {
+        padding: 76px 0;
+      }
+
+      .why h2 {
+        font-size: clamp(28px, 8.2vw, 36px);
+        line-height: 1.18;
+      }
+
+      .why p {
+        font-size: 16px;
+        line-height: 1.75;
+        margin-bottom: 30px;
+      }
+
+      .why .quote {
+        margin-top: 30px;
+        padding: 24px;
+      }
+
+      .card-grid,
+      .q-grid,
+      .steps-grid {
+        gap: 18px;
+      }
+
+      .card-grid {
+        margin-bottom: 34px;
+      }
+
+      .card,
+      .qcard,
+      .step-card {
+        padding: 28px 24px;
+        border-radius: 24px;
+        min-height: 0;
+      }
+
+      .card .num,
+      .snum {
+        margin-bottom: 18px;
+      }
+
+      .card h3 {
+        font-size: 21px;
+        line-height: 1.26;
+      }
+
+      .card p {
+        font-size: 15px;
+        line-height: 1.62;
+      }
+
+      .bridge-box {
+        margin-top: 30px;
+      }
+
+      .bridge {
+        padding: 18px 24px;
+        font-size: 15px;
+        width: 100%;
+      }
+
+      .qcard h3 {
+        font-size: clamp(19px, 5.7vw, 23px);
+        line-height: 1.38;
+      }
+
+      .qcard-note-lines {
+        margin-top: 22px;
+        gap: 16px;
+      }
+
+      .faq-layout {
+        gap: 32px;
+      }
+
+      .faq-q {
+        padding: 22px 24px;
+        font-size: 17px;
+      }
+
+      .faq-a .inner {
+        padding: 0 24px 22px;
+      }
+
+      .steps-grid {
+        margin-top: 32px;
+      }
+
+      .sbody h3 {
+        font-size: 20px;
+      }
+
+      .sbody p {
+        font-size: 15px;
+        line-height: 1.62;
+      }
+
+      .cta-sec {
+        padding: 58px 0 64px;
+      }
+
+      .cta-box {
+        padding: 42px 24px 46px;
+        border-radius: 28px;
+      }
+
+      .cta-box h2 {
+        font-size: clamp(29px, 8.2vw, 36px);
+        line-height: 1.16;
+      }
+
+      .cta-box p {
+        font-size: 16px;
+        line-height: 1.58;
+      }
+
+      .cta-box .fine {
+        margin-bottom: 24px;
+      }
+
+      .cta-box .promise {
+        margin-top: 22px;
+        font-size: 14px;
+      }
+
+      .cta-box .privacy-note {
+        margin-top: 16px;
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      footer {
+        padding: 38px 0 44px;
+      }
+
+      .footer-layout {
+        gap: 18px;
+      }
+
+      h1, h2, h3, p, span, a, li, button {
+        word-break: normal;
+        overflow-wrap: normal;
+      }
+
+      .kr h1, .kr h2, .kr h3, .kr p, .kr span, .kr a, .kr li, .kr button {
+        word-break: keep-all;
+        overflow-wrap: break-word;
+      }
+    }
+
+
+
+    /* Mobile tighter pass v2: reduce empty card space without making the page feel cramped */
+    @media (max-width: 520px) {
+      section {
+        padding: 54px 0;
+      }
+
+      .hero {
+        padding: 34px 0 50px;
+      }
+
+      .hero-grid {
+        gap: 28px;
+      }
+
+      .section-head {
+        margin-bottom: 28px;
+      }
+
+      .sec-h {
+        font-size: clamp(28px, 8vw, 35px);
+        line-height: 1.12;
+      }
+
+      .sec-sub {
+        font-size: 15.5px;
+        line-height: 1.55;
+      }
+
+      .why {
+        padding: 60px 0;
+      }
+
+      .why h2 {
+        font-size: clamp(27px, 7.8vw, 34px);
+        line-height: 1.16;
+        margin-bottom: 18px;
+      }
+
+      .why p {
+        margin-bottom: 24px;
+      }
+
+      .why .quote {
+        margin-top: 24px;
+        padding: 22px 20px;
+      }
+
+      .card-grid,
+      .q-grid,
+      .steps-grid,
+      .faq-items {
+        gap: 14px;
+      }
+
+      .card-grid {
+        margin-bottom: 26px;
+      }
+
+      .card,
+      .qcard,
+      .step-card {
+        padding: 22px 20px;
+        border-radius: 22px;
+        min-height: auto;
+      }
+
+      .card .num,
+      .snum {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 16px;
+      }
+
+      .card h3,
+      .sbody h3 {
+        font-size: 20px;
+        line-height: 1.22;
+        margin-bottom: 8px;
+      }
+
+      .card p,
+      .sbody p {
+        font-size: 15.5px;
+        line-height: 1.54;
+      }
+
+      .bridge-box {
+        margin-top: 24px;
+      }
+
+      .bridge {
+        padding: 16px 18px;
+      }
+
+      .qcard .tag {
+        margin-bottom: 12px;
+      }
+
+      .qcard h3 {
+        font-size: clamp(20px, 5.9vw, 23px);
+        line-height: 1.32;
+      }
+
+      .qcard h3.principle {
+        font-size: clamp(18px, 5.2vw, 20px);
+        line-height: 1.5;
+      }
+
+      .qcard-note-lines {
+        margin-top: 18px;
+        gap: 14px;
+      }
+
+      .faq {
+        padding: 54px 0;
+      }
+
+      .faq-layout {
+        gap: 24px;
+      }
+
+      .faq-q {
+        padding: 20px;
+        font-size: 17px;
+      }
+
+      .faq-a .inner {
+        padding: 0 20px 20px;
+      }
+
+      .steps-grid {
+        margin-top: 26px;
+      }
+
+      .cta-sec {
+        padding: 44px 0 38px;
+      }
+
+      .cta-box {
+        padding: 34px 20px 36px;
+        border-radius: 26px;
+      }
+
+      .cta-box h2 {
+        font-size: clamp(27px, 7.8vw, 34px);
+        margin-bottom: 14px;
+      }
+
+      .cta-box p {
+        font-size: 15.5px;
+        line-height: 1.52;
+      }
+
+      .cta-box .fine {
+        margin-bottom: 20px;
+      }
+
+      .cta-box .promise {
+        margin-top: 18px;
+      }
+
+      footer {
+        padding: 28px 0 32px;
+      }
+    }
+
     /* Reduced motion accessibility */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -1250,8 +1699,8 @@
             <span class="led"></span>
             <span data-en="For Korean students & graduates abroad — thinking about work, life, and what comes next" data-kr="해외 유학생과 졸업생이|일과 삶, 그리고 다음 선택을 생각해보는 곳">For Korean students &amp; graduates abroad — thinking about work, life, and what comes next</span>
           </span>
-          <h1 class="reveal" style="transition-delay: 0.2s;" data-en="Our years abroad are|more than a bullet&nbsp;point." data-kr="해외에서 보낸 시간이|스펙 한 줄로 끝나지 않도록.">Our years abroad are<br>more than a bullet&nbsp;point.</h1>
-          <p class="lead reveal" style="transition-delay: 0.3s;" data-en="Leeora is a small community started for those who want to understand what our experiences mean for work, life, and the choices ahead — beyond generic career advice." data-kr="Leeora는 흔한 취업 조언보다,|해외에서 보낸 시간이 앞으로의 일과 삶에서|어떤 의미가 되는지 함께 생각해볼 수 있는|커뮤니티가 있으면 좋겠다는 마음에서 시작됐습니다.">Leeora is a small community started for those who want to understand what our experiences mean for work, life, and the choices ahead — beyond generic career advice.</p>
+          <h1 class="reveal" style="transition-delay: 0.2s;" data-en="Our years abroad|are more than a|bullet&nbsp;point." data-kr="해외에서 보낸 시간이|스펙 한 줄로 끝나지 않도록.">Our years abroad<br>are more than a<br>bullet&nbsp;point.</h1>
+          <p class="lead reveal" style="transition-delay: 0.3s;" data-en="Leeora is a small community started for those who want to understand what our experiences mean for work, life, and what comes next — beyond generic career advice." data-kr="Leeora는 흔한 취업 조언보다,|해외에서 보낸 시간이 앞으로의 일과 삶에서|어떤 의미가 되는지 함께 생각해볼 수 있는|커뮤니티가 있으면 좋겠다는 마음에서 시작됐습니다.">Leeora is a small community started for those who want to understand what our experiences mean for work, life, and what comes next — beyond generic career advice.</p>
           <div class="hero-actions reveal" style="transition-delay: 0.4s;">
             <a href="https://tally.so/r/jakor1" target="_blank" rel="noopener" class="cta" data-en="Leave a Short Reflection" data-kr="짧은 기록 남기기">Leave a Short Reflection</a>
             <a href="#why" class="explore">
@@ -1332,7 +1781,7 @@
           <div class="card">
             <span class="num">02</span>
             <h3 data-en="Still finding what fits" data-kr="진짜 나에게 어울리는 것을 찾는 여정">진짜 나에게 어울리는 것을 찾는 여정</h3>
-            <p data-en="Thinking through choices, where to anchor yourself, and the kind of life that feels right." data-kr="어떤 선택을 할지,|어디에 나를 뿌리내릴지,|그리고 어떤 삶이 나에게 맞는지|함께 생각해봅니다.">어떤 선택을 할지,<br>어디에 나를 뿌리내릴지,<br>그리고 어떤 삶이 나에게 맞는지<br>함께 생각해봅니다.</p>
+            <p data-en="Thinking through where you can anchor yourself, what feels right, and the kind of life you want to grow into." data-kr="어디에 나를 뿌리내릴지,|무엇이 나에게 맞는지,|그리고 어떤 삶으로 자라가고 싶은지|함께 생각해봅니다.">어떤 선택을 할지,<br>어디에 나를 뿌리내릴지,<br>그리고 어떤 삶이 나에게 맞는지<br>함께 생각해봅니다.</p>
           </div>
           <div class="card">
             <span class="num">03</span>
