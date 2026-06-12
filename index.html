@@ -1629,6 +1629,257 @@
       }
     }
 
+
+
+    /* Mobile alignment pass v3: center editorial cards and tighten card rhythm */
+    @media (max-width: 520px) {
+      .container {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
+      .card,
+      .qcard,
+      .step-card,
+      .why .quote,
+      .cta-box {
+        text-align: center;
+        align-items: center;
+      }
+
+      .card,
+      .qcard,
+      .step-card {
+        padding: 20px 18px;
+      }
+
+      .qcard {
+        justify-content: center;
+      }
+
+      .card .num,
+      .snum {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 14px;
+      }
+
+      .card h3,
+      .card p,
+      .qcard h3,
+      .qcard .tag,
+      .sbody h3,
+      .sbody p,
+      .why .quote,
+      .cta-box h2,
+      .cta-box p {
+        text-align: center;
+      }
+
+      .qcard-note-lines,
+      .mockup-note-lines {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .mockup-card.card-top {
+        text-align: center;
+      }
+
+      .mockup-q,
+      .mockup-tag {
+        text-align: center;
+      }
+
+      .mockup-footer {
+        gap: 12px;
+      }
+
+      .qcard.dark {
+        padding-top: 26px;
+        padding-bottom: 26px;
+      }
+
+      .bridge {
+        text-align: center;
+      }
+
+      .steps-grid .step-card {
+        min-height: 0;
+      }
+
+      .cta-sec {
+        padding-bottom: 28px;
+      }
+
+      .cta-box {
+        padding-top: 32px;
+        padding-bottom: 32px;
+      }
+
+      /* Keep FAQ rows left-aligned for accordion scanability */
+      .faq-item,
+      .faq-q,
+      .faq-a .inner {
+        text-align: left;
+      }
+    }
+
+
+
+    /* Mobile typography pass v4: cleaner type scale and steadier visual rhythm */
+    @media (max-width: 520px) {
+      :root {
+        --m-h1: clamp(34px, 9vw, 38px);
+        --m-h2: clamp(27px, 7.4vw, 32px);
+        --m-card-title: 20px;
+        --m-card-body: 15.5px;
+        --m-small: 13.5px;
+      }
+
+      .brand {
+        font-size: 24px;
+      }
+
+      .brand .logo-icon {
+        width: 25px;
+        height: 25px;
+      }
+
+      .badge {
+        font-size: 12.5px;
+        line-height: 1.35;
+        padding: 7px 13px;
+      }
+
+      .hero h1 {
+        font-size: var(--m-h1);
+        line-height: 1.1;
+        margin-bottom: 18px;
+      }
+
+      .kr .hero h1 {
+        font-size: clamp(31px, 8.2vw, 35px);
+        line-height: 1.24;
+      }
+
+      .lead,
+      .kr .lead {
+        font-size: 15.8px;
+        line-height: 1.62;
+        margin-bottom: 26px;
+      }
+
+      .hero .cta,
+      .cta-box .cta {
+        font-size: 15.5px;
+        padding: 15px 22px;
+      }
+
+      .sec-h,
+      .why h2,
+      .cta-box h2 {
+        font-size: var(--m-h2);
+        line-height: 1.18;
+        letter-spacing: -0.035em;
+      }
+
+      .kr .sec-h,
+      .kr .why h2,
+      .kr .cta-box h2 {
+        font-size: clamp(26px, 7vw, 31px);
+        line-height: 1.28;
+        letter-spacing: -0.04em;
+      }
+
+      .sec-sub,
+      .why p,
+      .cta-box p {
+        font-size: var(--m-card-body);
+        line-height: 1.58;
+      }
+
+      .card h3,
+      .sbody h3,
+      .qcard h3,
+      .faq-q {
+        font-size: var(--m-card-title);
+        line-height: 1.28;
+        letter-spacing: -0.03em;
+      }
+
+      .kr .card h3,
+      .kr .sbody h3,
+      .kr .qcard h3,
+      .kr .faq-q {
+        font-size: 19.5px;
+        line-height: 1.38;
+        letter-spacing: -0.035em;
+      }
+
+      .card p,
+      .sbody p,
+      .faq-a .inner,
+      .kr .card p,
+      .kr .sbody p,
+      .kr .faq-a .inner {
+        font-size: var(--m-card-body);
+        line-height: 1.58;
+      }
+
+      .qcard h3.principle,
+      .kr .qcard h3.principle {
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+      .mockup-q,
+      .kr .mockup-q {
+        font-size: clamp(20px, 5.7vw, 22px);
+        line-height: 1.36;
+      }
+
+      .qcard .tag,
+      .mockup-tag {
+        font-size: 11.5px;
+        letter-spacing: 0.08em;
+      }
+
+      .cta-box .fine {
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .cta-box .promise {
+        font-size: 15.5px;
+        line-height: 1.55;
+      }
+
+      .cta-box .privacy-note,
+      .footer-layout {
+        font-size: 13.5px;
+        line-height: 1.55;
+      }
+
+      .card,
+      .qcard,
+      .step-card {
+        padding: 22px 20px;
+      }
+
+      .cta-box {
+        padding: 34px 22px 34px;
+      }
+
+      section {
+        padding: 50px 0;
+      }
+
+      .cta-sec {
+        padding: 38px 0 28px;
+      }
+    }
+
     /* Reduced motion accessibility */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
